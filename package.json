@@ -1,7 +1,7 @@
 {
   "name": "@reactizard/plain-ui",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/plain-ui"
+    "registry": "https://npm.pkg.github.com/"
   },
   "version": "0.0.1",
   "description": "A simple react tailwind UI component library",
