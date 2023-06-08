@@ -4,12 +4,13 @@ import typescript from "@rollup/plugin-typescript";
 import { watch } from 'rollup';
 import dts from "rollup-plugin-dts";
 import postcss from "rollup-plugin-postcss";
+//import { terser } from 'rollup-plugin-terser';
 
 const packageJson = require("./package.json");
 
 const config = [
   {
-    input: "src/index.ts",
+    input: "./src/index.ts",
     output: [
       {
         file: packageJson.main,
@@ -27,6 +28,7 @@ const config = [
       commonjs(),
       typescript({ tsconfig: "./tsconfig.json" }),
       postcss(),
+      //terser()
     ],
   },
   {
