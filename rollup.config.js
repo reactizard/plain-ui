@@ -1,10 +1,13 @@
+import { DEFAULT_EXTENSIONS } from '@babel/core';
+import { babel } from '@rollup/plugin-babel';
 import commonjs from "@rollup/plugin-commonjs";
 import resolve from "@rollup/plugin-node-resolve";
-import typescript from "@rollup/plugin-typescript";
 import { watch } from 'rollup';
 import dts from "rollup-plugin-dts";
+import external from 'rollup-plugin-peer-deps-external';
 import postcss from "rollup-plugin-postcss";
-//import { terser } from 'rollup-plugin-terser';
+import { terser } from 'rollup-plugin-terser';
+import typescript from "rollup-plugin-typescript2";
 
 const packageJson = require("./package.json");
 
@@ -24,15 +27,25 @@ const config = [
       },
     ],
     plugins: [
-      resolve(),
+      external(),
+      typescript({ tsconfig: './tsconfig.json' }),
+      resolve({
+        extensions: ['.js', '.jsx', '.ts', '.tsx']
+      }),
       commonjs(),
-      typescript({ tsconfig: "./tsconfig.json" }),
       postcss(),
-      //terser()
+      babel({
+        extensions: [
+          ...DEFAULT_EXTENSIONS,
+          '.ts',
+          '.tsx'
+        ]
+      }),
+      terser()
     ],
   },
   {
-    input: "dist/esm/types/index.d.ts",
+    input: "./src/index.ts",
     output: [{ file: "dist/index.d.ts", format: "esm" }],
     plugins: [dts()],
     external: [/\.(css|less|scss)$/],
@@ -41,7 +54,7 @@ const config = [
 
 if (process.argv.includes('--watch')) {
   const watcher = watch({
-    ...config, // Replace with your Rollup configuration object
+    ...config,
   });
 
   watcher.on('event', event => {
