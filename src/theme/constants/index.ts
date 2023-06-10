@@ -1,2 +1,2 @@
-export { ColorPalette } from "./colors"
+export { ColorPalette, Colors } from "./colors"
 export { Variant } from "./variant"
