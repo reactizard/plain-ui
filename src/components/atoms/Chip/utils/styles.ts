@@ -22,6 +22,8 @@ export const getStyles = ({
     "gap-[4px]",
     "px-[8px]",
     "py-[2px]",
+    "font-inter",
+    "text-sm",
     {
       ...(variant == "outlined" ? border : bg),
       ...(variant == "filled" ? hover : null),
