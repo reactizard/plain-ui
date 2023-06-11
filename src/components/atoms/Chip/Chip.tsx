@@ -7,7 +7,7 @@ import { getStyles } from "./utils/styles"
 
 interface ChipProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   text: string
-  variant?: Exclude<Variant, "light">
+  variant?: Extract<Variant, "filled" | "outlined">
   color?: Colors
   disabled?: boolean
 }
