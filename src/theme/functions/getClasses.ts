@@ -12,6 +12,14 @@ export const getClasses = ({ color }: GetClassesProps) => {
     "bg-gray-300": color == "grays",
   }
 
+  const bgLight = {
+    "bg-primary-100": color == "primary",
+    "bg-warning-100": color == "warning",
+    "bg-success-100": color == "success",
+    "bg-danger-100": color == "danger",
+    "bg-gray-100": color == "grays",
+  }
+
   const hover = {
     "hover:bg-primary-700": color == "primary",
     "hover:bg-warning-700": color == "warning",
@@ -50,5 +58,5 @@ export const getClasses = ({ color }: GetClassesProps) => {
     "text-gray-300": color == "grays",
   }
 
-  return { bg, hover, border, text, coloredText, fill }
+  return { bg, bgLight, hover, border, text, coloredText, fill }
 }
