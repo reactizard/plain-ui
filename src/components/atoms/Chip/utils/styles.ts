@@ -1,27 +1,24 @@
 import classNames from "classnames"
 import { Colors } from "../../../../theme/constants"
-import { Variant } from "../../../../theme/constants/variant"
-import { getClasses } from "../../../../theme/functions/getClasses"
+import { bg, border, hover, text } from "../../../../theme/mapper"
+import { ChipProps } from "../Chip"
 
 interface StyleProps {
-  variant: Variant
+  variant: NonNullable<ChipProps["variant"]>
   color?: Colors
   disabled?: boolean
 }
+
+type variantColorType = Record<StyleProps["variant"], Array<string>>
+
 export const getStyles = ({
   variant,
   color = "primary",
   disabled = false,
 }: StyleProps) => {
-  const { bg, border, hover, text, coloredText } = getClasses({ color })
-
-  const commonClasses = classNames({
-    ...(variant == "outlined" ? border : bg),
-    ...(variant == "filled" ? hover : null),
-    ...(variant == "outlined" ? coloredText : text),
-    "disabled:opacity-50": disabled == true,
-    "disabled:cursor-not-allowed": disabled == true,
-  })
+  const outlined = ["border", border[color][700], text[color][700]]
+  const filled = [bg[color][500], hover[color][600], "text-white"]
+  const variantColor: variantColorType = { filled, outlined }
 
   const ownClasses = [
     "flex",
@@ -32,9 +29,10 @@ export const getStyles = ({
     "py-[2px]",
     "font-inter",
     "text-smRegular",
+    disabled ? "disabled:opacity-50 disabled:cursor-not-allowed" : "",
   ]
 
-  const styles = classNames(commonClasses, ownClasses)
+  const styles = classNames(variantColor[variant], ownClasses)
 
   return styles
 }

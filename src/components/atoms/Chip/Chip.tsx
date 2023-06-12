@@ -5,7 +5,7 @@ import { Colors, Variant } from "../../../theme/constants"
 import { getClasses } from "../../../theme/functions/getClasses"
 import { getStyles } from "./utils/styles"
 
-interface ChipProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ChipProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   text: string
   variant?: Extract<Variant, "filled" | "outlined">
   color?: Colors
