@@ -31,7 +31,7 @@ export const getStyles = ({
     "px-[8px]",
     "py-[2px]",
     "font-inter",
-    "text-sm",
+    "text-smRegular",
   ]
 
   const styles = classNames(commonClasses, ownClasses)

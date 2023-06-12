@@ -23,7 +23,7 @@ export const getStyles = ({ variant, color = "primary" }: StyleProps) => {
     "py-[2px]",
     "max-w-fit",
     "font-inter",
-    "text-sm",
+    "text-smRegular",
   ]
   const styles = classNames(ownClasses, commonClasses)
 
