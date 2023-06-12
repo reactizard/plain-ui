@@ -35,6 +35,7 @@ const config = [
       commonjs(),
       postcss(),
       babel({
+        babelHelpers: "bundled",
         extensions: [
           ...DEFAULT_EXTENSIONS,
           '.ts',
