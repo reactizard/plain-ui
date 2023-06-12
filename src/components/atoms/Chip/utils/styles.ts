@@ -15,7 +15,15 @@ export const getStyles = ({
 }: StyleProps) => {
   const { bg, border, hover, text, coloredText } = getClasses({ color })
 
-  const styles = classNames(
+  const commonClasses = classNames({
+    ...(variant == "outlined" ? border : bg),
+    ...(variant == "filled" ? hover : null),
+    ...(variant == "outlined" ? coloredText : text),
+    "disabled:opacity-50": disabled == true,
+    "disabled:cursor-not-allowed": disabled == true,
+  })
+
+  const ownClasses = [
     "flex",
     "items-center",
     "rounded-[4px]",
@@ -24,14 +32,9 @@ export const getStyles = ({
     "py-[2px]",
     "font-inter",
     "text-sm",
-    {
-      ...(variant == "outlined" ? border : bg),
-      ...(variant == "filled" ? hover : null),
-      ...(variant == "outlined" ? coloredText : text),
-      "disabled:opacity-50": disabled == true,
-      "disabled:cursor-not-allowed": disabled == true,
-    }
-  )
+  ]
+
+  const styles = classNames(commonClasses, ownClasses)
 
   return styles
 }
