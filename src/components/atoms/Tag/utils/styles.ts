@@ -9,8 +9,12 @@ interface StyleProps {
 
 export const getStyles = ({ variant, color = "primary" }: StyleProps) => {
   const { bg, bgLight, hover, text, coloredText } = getClasses({ color })
+  const commonClasses = classNames({
+    ...(variant == "plain" ? { ...bgLight, ...coloredText } : null),
+    ...(variant == "filled" ? { ...bg, ...text } : null),
+  })
 
-  const styles = classNames(
+  const ownClasses = [
     "flex",
     "items-center",
     "rounded-[999px]",
@@ -20,11 +24,8 @@ export const getStyles = ({ variant, color = "primary" }: StyleProps) => {
     "max-w-fit",
     "font-inter",
     "text-sm",
-    {
-      ...(variant == "plain" ? { ...bgLight, ...coloredText } : null),
-      ...(variant == "filled" ? { ...bg, ...text } : null),
-    }
-  )
+  ]
+  const styles = classNames(ownClasses, commonClasses)
 
   return styles
 }
