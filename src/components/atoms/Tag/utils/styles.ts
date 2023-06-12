@@ -1,18 +1,18 @@
 import classNames from "classnames"
-import { getClasses } from "../../../../theme/functions/getClasses"
+import { bg, text } from "../../../../theme/mapper"
 import { TagProps } from "../Tag"
 
 interface StyleProps {
   variant: TagProps["variant"]
-  color?: TagProps["color"]
+  color: TagProps["color"]
 }
 
-export const getStyles = ({ variant, color = "primary" }: StyleProps) => {
-  const { bg, bgLight, hover, text, coloredText } = getClasses({ color })
-  const commonClasses = classNames({
-    ...(variant == "plain" ? { ...bgLight, ...coloredText } : null),
-    ...(variant == "filled" ? { ...bg, ...text } : null),
-  })
+type variantColorType = Record<StyleProps["variant"], Array<string>>
+
+export const getStyles = ({ variant, color }: StyleProps) => {
+  const filled = [bg[color][500], "text-white"]
+  const plain = [bg[color][100], text[color][700]]
+  const variantColor: variantColorType = { filled, plain }
 
   const ownClasses = [
     "flex",
@@ -23,9 +23,9 @@ export const getStyles = ({ variant, color = "primary" }: StyleProps) => {
     "py-[2px]",
     "max-w-fit",
     "font-inter",
-    "text-smRegular",
+    "text-smSemiBold",
   ]
-  const styles = classNames(ownClasses, commonClasses)
+  const styles = classNames(ownClasses, variantColor[variant])
 
   return styles
 }
