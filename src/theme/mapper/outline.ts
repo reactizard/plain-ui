@@ -1,4 +1,4 @@
-const text = {
+const outline = {
   primary: {
     [100]: "outline-primary-100",
     [200]: "outline-primary-200",
@@ -154,4 +154,4 @@ const text = {
     [900]: "outline-warm-900",
   },
 }
-export default text
+export default outline
