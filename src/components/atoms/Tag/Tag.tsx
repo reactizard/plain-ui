@@ -1,10 +1,10 @@
 import React from "react"
-import { Colors, Variant } from "../../../theme/constants"
+import { ButtonVariant, Colors } from "../../../theme/constants"
 import { getStyles } from "./utils/styles"
 
 export interface TagProps {
   text: string
-  variant: Extract<Variant, "filled" | "plain">
+  variant: Extract<ButtonVariant, "filled" | "plain">
   color: Colors
 }
 

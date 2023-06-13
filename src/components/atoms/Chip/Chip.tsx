@@ -1,13 +1,13 @@
 import React, { ButtonHTMLAttributes } from "react"
 import useDisclosure from "../../../hooks/useDisclosure"
 import Times from "../../../icons/Times"
-import { Colors, Variant } from "../../../theme/constants"
+import { ButtonVariant, Colors } from "../../../theme/constants"
 import { getClasses } from "../../../theme/functions/getClasses"
 import { getStyles } from "./utils/styles"
 
 export interface ChipProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   text: string
-  variant?: Extract<Variant, "filled" | "outlined">
+  variant?: Extract<ButtonVariant, "filled" | "outlined">
   color?: Colors
   disabled?: boolean
 }
