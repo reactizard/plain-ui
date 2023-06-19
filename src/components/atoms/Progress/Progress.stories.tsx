@@ -13,9 +13,9 @@ type Story = StoryObj<typeof Progress>
 export const Primary: Story = {
   args: {
     color: "primary",
-    label: "hello",
+    label: "",
     progress: 30,
     size: "md",
-    variant: "circle",
+    variant: "bar",
   },
 }

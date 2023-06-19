@@ -5,11 +5,11 @@ import Circle from "./components/Circle"
 import { ProgressProps } from "./utils/types"
 
 const Progress: React.FC<ProgressProps> = ({
-  color,
-  label,
+  color = "primary",
+  label = "",
   progress,
-  size,
-  variant,
+  size = "md",
+  variant = "bar",
 }) => {
   const progressComponent: Record<ProgressVariant, JSX.Element> = {
     bar: <Bar progress={progress} size={size} color={color} />,

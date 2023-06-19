@@ -1,10 +1,10 @@
 import { Colors, ProgressVariant, Size } from "../../../../theme/constants"
 
 export interface ProgressProps {
-  variant: ProgressVariant
-  size: Size
-  color: Colors
-  label: string
+  variant?: ProgressVariant
+  size?: Size
+  color?: Colors
+  label?: string
   progress: number
 }
 
