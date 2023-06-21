@@ -1,10 +1,10 @@
 import classNames from "classnames"
 import React, { SVGProps } from "react"
-import { Variant } from "../theme/constants"
+import { ButtonVariant } from "../theme/constants"
 
 interface TimesProps extends SVGProps<SVGSVGElement> {
   customfill: {
-    variant?: Variant
+    variant?: ButtonVariant
     color?: any
   }
 }
