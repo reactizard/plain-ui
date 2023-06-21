@@ -1,5 +1,6 @@
 export type ButtonVariant = "outlined" | "filled" | "light" | "plain"
 export type ProgressVariant = "bar" | "circle" | "half-circle"
+export type RatingVariant = "heart" | "star"
 export type Size = "sm" | "md" | "lg"
 export type Position = "left" | "right" | "top" | "bottom"
 export type LabelVariant = "title" | "subtitle" | "hint" | "icon"

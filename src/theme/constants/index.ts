@@ -5,5 +5,6 @@ export {
   LabelVariant,
   Position,
   ProgressVariant,
+  RatingVariant,
   Size,
 } from "./variant"
