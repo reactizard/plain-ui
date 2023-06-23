@@ -6,7 +6,7 @@ import {
   IconPlus,
 } from "@tabler/icons-react"
 import React from "react"
-import { Fab } from "./Fab"
+import { Fab, FabProps } from "./Fab"
 
 const icons = {
   IconMessageCircle2: <IconMessageCircle2 />,
@@ -33,7 +33,7 @@ const meta: Meta<typeof Fab> = {
 export default meta
 type Story = StoryObj<typeof Fab>
 
-export const Primary: Story = (args: any) => <Fab {...args} />
+export const Primary: Story = (args: FabProps) => <Fab {...args} />
 
 Primary.args = {
   text: "",

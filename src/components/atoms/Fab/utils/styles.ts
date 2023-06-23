@@ -7,7 +7,7 @@ interface StyleProps {
   disabled?: boolean
 }
 
-export const getStyles: any = ({ color, disabled }: StyleProps) => {
+export const getStyles = ({ color, disabled }: StyleProps) => {
   const ownClasses = [
     "flex",
     "items-center",
