@@ -1,17 +1,6 @@
-import React, { ButtonHTMLAttributes } from "react"
-import { ButtonVariant, Colors, Size } from "../../../theme/constants"
+import React from "react"
 import { getStyles } from "./utils/styles"
-
-export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  color?: Colors
-  disabled?: boolean
-  leftIcon?: React.ReactNode
-  rightIcon?: React.ReactNode
-  size?: Size
-  variant?: Extract<ButtonVariant, "outlined" | "filled">
-  children?: React.ReactNode
-  round?: boolean
-}
+import { ButtonProps } from "./utils/types"
 
 export const Button: React.FC<ButtonProps> = ({
   children,
