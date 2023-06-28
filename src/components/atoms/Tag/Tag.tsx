@@ -11,7 +11,7 @@ export interface TagProps {
 export const Tag: React.FC<TagProps> = React.forwardRef<
   HTMLDivElement,
   TagProps
->(({ color = "primary", text, variant = "filled" }, ref) => {
+>(function Tag({ color = "primary", text, variant = "filled" }, ref) {
   const classes = getStyles({
     variant: variant,
     color: color,

@@ -5,7 +5,7 @@ import { ButtonVariant } from "../theme/constants"
 interface TimesProps extends SVGProps<SVGSVGElement> {
   customfill: {
     variant?: ButtonVariant
-    color?: any
+    color?: string
   }
 }
 

@@ -8,7 +8,7 @@ export default function useDisclosure(
   const [opened, setOpened] = useState(initialState)
 
   const open = () => {
-    setOpened((isOpened: any) => {
+    setOpened((isOpened: boolean) => {
       if (!isOpened) {
         onOpen?.()
         return true
@@ -17,7 +17,7 @@ export default function useDisclosure(
     })
   }
   const close = () => {
-    setOpened((isOpened: any) => {
+    setOpened((isOpened: boolean) => {
       if (isOpened) {
         onClose?.()
         return false
