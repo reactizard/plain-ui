@@ -1,12 +1,7 @@
 import classNames from "classnames"
-import { Colors, Size } from "../../../../theme/constants"
+import { Size } from "../../../../theme/constants"
 import { bg, border, hover, text } from "../../../../theme/mapper"
-import { ButtonProps } from "../Button"
-
-interface StyleProps extends ButtonProps {
-  color: Colors
-  size: Size
-}
+import { StyleProps } from "./types"
 
 export const getStyles = ({
   color,
@@ -37,10 +32,10 @@ export const getStyles = ({
     "gap-[4px]",
     "max-w-fit",
     "items-center",
-    sizeMapper[size].height,
-    children ? "px-[20px]" : sizeMapper[size].padding,
     "font-inter",
     "text-mdRegular",
+    sizeMapper[size].height,
+    children ? "px-[20px]" : sizeMapper[size].padding,
     disabled ? "disabled:opacity-50 disabled:cursor-not-allowed" : "",
     round ? "rounded-[200px]" : "rounded-[4px]",
     variant ? variantColor[variant] : "",
