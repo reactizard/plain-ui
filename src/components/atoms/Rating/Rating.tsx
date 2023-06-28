@@ -10,7 +10,7 @@ const Rating: React.FC<RatingProps> = forwardRef<HTMLDivElement, RatingProps>(
   ) {
     const [rating, setRating] = useState(0)
 
-    count = Math.min(maxStar, Math.max(minStar, count))
+    count = Math.round(Math.min(maxStar, Math.max(minStar, count)))
 
     return (
       <div className={container} ref={ref}>
