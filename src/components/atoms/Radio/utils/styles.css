@@ -1,0 +1,6 @@
+/**
+ * Todo: Remove this file and convert to tailwindcss
+ */
+.pUIRadio:checked::before {
+  transform: scale(1, 1);
+}
