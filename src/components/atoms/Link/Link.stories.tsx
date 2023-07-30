@@ -14,7 +14,17 @@ export const Primary: Story = {
   args: {
     href: "https://www.google.com",
     text: "Google",
-    color: "danger",
     underline: true,
+  },
+}
+
+export const TargetBlank: Story = {
+  args: {
+    href: "https://www.you.com",
+    text: "you.com",
+    underline: false,
+    target: "_blank",
+    color: "lime",
+    size: "lg",
   },
 }
