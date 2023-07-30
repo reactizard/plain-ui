@@ -3,11 +3,7 @@ import { Size } from "../../../../theme/constants"
 import { text } from "../../../../theme/mapper"
 import { StyleProps } from "./types"
 
-export const getStyles = ({
-  color,
-  size = "md",
-  underline = true,
-}: StyleProps) => {
+export const getStyles = ({ color, size, underline, disabled }: StyleProps) => {
   const sizeMapper: Record<Size, string> = {
     sm: "text-smRegular",
     md: "text-mdRegular",
@@ -16,8 +12,9 @@ export const getStyles = ({
 
   const linkCls = classNames([
     color ? text[color][500] : "",
-    underline ? "underline" : "no-underline",
-    sizeMapper[size],
+    underline ? "hover:underline" : "hover:no-underline",
+    size ? sizeMapper[size] : "",
+    disabled ? "opacity-50 cursor-not-allowed" : "",
   ])
 
   return { linkCls }
