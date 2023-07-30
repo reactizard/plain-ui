@@ -1,10 +1,12 @@
-import { Colors } from "../../../../theme/constants"
+import { Colors, Size } from "../../../../theme/constants"
 
-export interface LinkProps {
+export interface LinkProps
+  extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   href: string
   text: string
-  color: Colors
+  color?: Colors
+  size?: Size
   underline?: boolean
 }
 
-export type StyleProps = Pick<LinkProps, "color" | "underline">
+export type StyleProps = Pick<LinkProps, "color" | "underline" | "size">
