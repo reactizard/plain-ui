@@ -7,6 +7,10 @@ export interface LinkProps
   color?: Colors
   size?: Size
   underline?: boolean
+  disabled?: boolean
 }
 
-export type StyleProps = Pick<LinkProps, "color" | "underline" | "size">
+export type StyleProps = Pick<
+  LinkProps,
+  "color" | "underline" | "size" | "disabled"
+>
