@@ -3,17 +3,13 @@ import { Colors, Position, Size } from "../../../../theme/constants"
 export interface TooltipProps {
   children?: React.ReactNode
   text: string
-  position?: Position
+  position?: Exclude<Position, "center">
   color?: Colors
   size?: Size
   hideArrow?: boolean
 }
 
-export interface StyleProps {
-  position: Position
-  color: Colors
-  size: Size
-}
+export type StyleProps = Pick<TooltipProps, "position" | "color" | "size">
 
 export interface PositionMapperType {
   tooltip: Position
