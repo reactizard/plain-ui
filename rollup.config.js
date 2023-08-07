@@ -8,8 +8,8 @@ import external from "rollup-plugin-peer-deps-external"
 import postcss from "rollup-plugin-postcss"
 import { terser } from "rollup-plugin-terser"
 import typescript from "rollup-plugin-typescript2"
+import { visualizer } from "rollup-plugin-visualizer"
 import packageJson from "./package.json"
-
 
 const config = [
   {
@@ -43,6 +43,7 @@ const config = [
         ]
       }),
       terser(),
+      visualizer({ gzipSize: true }),
     ],
   },
   {
