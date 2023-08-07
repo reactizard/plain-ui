@@ -1,10 +1,13 @@
 import classNames from "classnames"
-import { Position, Size } from "../../../../theme/constants"
+import { Size } from "../../../../theme/constants"
 import { bg, border } from "../../../../theme/mapper"
 import { PositionMapperType, StyleProps } from "./types"
 
 export const getStyles = ({ position, color, size }: StyleProps) => {
-  const positionMapper: Record<Position, PositionMapperType> = {
+  const positionMapper: Record<
+    NonNullable<StyleProps["position"]>,
+    PositionMapperType
+  > = {
     bottom: {
       tooltip: "top",
       arrow: "top-[-6px]",
@@ -55,23 +58,23 @@ export const getStyles = ({ position, color, size }: StyleProps) => {
     "justify-center",
     "w-max",
     "opacity-0",
-    bg[color][500],
-    border[color][300],
+    color ? bg[color][500] : "",
+    color ? border[color][300] : "",
     "border-2",
-    positionMapper[position].margin,
-    positionMapper[position].position,
-    sizeMapper[size],
+    position ? positionMapper[position].margin : "",
+    position ? positionMapper[position].position : "",
+    size ? sizeMapper[size] : "",
     "max-w-[300px]",
     "break-words"
   )
 
   const arrow = classNames(
-    bg[color][500],
+    color ? bg[color][500] : "",
     "h-3",
     "w-3",
     "absolute",
     "rotate-45",
-    positionMapper[position].arrow
+    position ? positionMapper[position].arrow : ""
   )
 
   return { parent, container, arrow }
