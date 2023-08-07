@@ -1,5 +1,5 @@
 import { ColorPalette } from "./src/theme/constants"
-import Font from './src/theme/constants/font'
+import Font from "./src/theme/constants/font"
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
