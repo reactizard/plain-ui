@@ -12,7 +12,7 @@ export interface TooltipProps {
 export type StyleProps = Pick<TooltipProps, "position" | "color" | "size">
 
 export interface PositionMapperType {
-  tooltip: Position
+  tooltip: TooltipProps["position"]
   arrow: string
   margin: string
   position: string
