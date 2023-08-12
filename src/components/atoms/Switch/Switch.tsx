@@ -1,21 +1,42 @@
-import React, { FC, forwardRef } from "react"
+import React, { FC, forwardRef, useState } from "react"
 import { getStyles } from "./utils/styles"
 import "./utils/styles.css"
 import { SwitchProps } from "./utils/types"
 
 const Switch: FC<SwitchProps> = forwardRef<HTMLInputElement, SwitchProps>(
   function Switch(
-    { color = "primary", disable, label, labelPosition, onChange },
+    {
+      color = "success",
+      size = "md",
+      label,
+      subtitle,
+      labelPosition = "left",
+      onChange,
+    },
     ref
   ) {
-    const { inputCls, labelCls } = getStyles({ color, disable, labelPosition })
+    const [checked, setChecked] = useState(false)
+    const styles = getStyles({ color, size, labelPosition, checked })
+    const toggleCheck = () => {
+      setChecked((prev) => !prev)
+    }
     return (
-      <>
-        <input type="checkbox" id="switch" className={inputCls} ref={ref} />
-        <label htmlFor="switch" className={labelCls}>
-          Toggle
-        </label>
-      </>
+      <div className={styles.containerCls}>
+        <input
+          type="checkbox"
+          id="switch"
+          className={styles.inputCls}
+          ref={ref}
+          onChange={onChange}
+          onClick={toggleCheck}
+        />
+        <label htmlFor="switch" className={styles.labelCls} />
+
+        <div className={styles.textContainerCls}>
+          <p className={styles.textCls}>{label}</p>
+          <p className={styles.subTextCls}>{subtitle}</p>
+        </div>
+      </div>
     )
   }
 )

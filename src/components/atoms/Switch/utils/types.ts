@@ -1,15 +1,16 @@
-import { ReactNode } from "react"
-import { Colors, Position } from "../../../../theme/constants"
+import { Colors, Position, Size } from "../../../../theme/constants"
 
 export interface SwitchProps {
-  color: Colors
-  disable: boolean
-  label: ReactNode | string
+  color?: Colors
+  size?: Size
+  disable?: boolean
+  label?: string
+  subtitle?: string
   labelPosition?: Extract<Position, "left" | "right">
   onChange?: React.ChangeEventHandler
 }
 
 export type StyleProps = Pick<
   SwitchProps,
-  "color" | "disable" | "labelPosition"
->
+  "color" | "size" | "disable" | "labelPosition"
+> & { checked?: boolean }
