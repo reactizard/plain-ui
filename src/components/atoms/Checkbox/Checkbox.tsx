@@ -18,26 +18,22 @@ export const Checkbox: React.FC<CheckboxProps> = forwardRef<
 ) {
   const [checked, setChecked] = useState(false)
 
-  const {
-    parentContainer,
-    container,
-    label: labelClass,
-  } = getStyles({ color, disabled, checked, size })
+  const styles = getStyles({ color, disabled, checked, size })
 
   const toggleCheck = () => {
     setChecked((prev) => !prev)
   }
 
   const labelComponent = (
-    <label htmlFor="" className={labelClass}>
+    <label htmlFor="" className={styles.label}>
       {label}
     </label>
   )
 
   return (
-    <div className={parentContainer} onClick={toggleCheck}>
+    <div className={styles.parentContainer} onClick={toggleCheck}>
       {labelPosition == "left" ? labelComponent : null}
-      <div ref={ref} className={container}>
+      <div ref={ref} className={styles.container}>
         {checked ? <IconCheck color={"white"} strokeWidth={2.8} /> : null}
       </div>
       {labelPosition == "right" ? labelComponent : null}
