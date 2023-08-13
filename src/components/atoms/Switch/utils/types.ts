@@ -3,7 +3,6 @@ import { Colors, Position, Size } from "../../../../theme/constants"
 export interface SwitchProps {
   color?: Colors
   size?: Size
-  disable?: boolean
   label?: string
   subtitle?: string
   labelPosition?: Extract<Position, "left" | "right">
@@ -12,5 +11,5 @@ export interface SwitchProps {
 
 export type StyleProps = Pick<
   SwitchProps,
-  "color" | "size" | "disable" | "labelPosition"
+  "color" | "size" | "labelPosition"
 > & { checked?: boolean }
