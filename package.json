@@ -3,7 +3,7 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A simple react tailwind UI component library",
   "scripts": {
     "build": "rollup -c --environment INCLUDE_DEPS,BUILD:production",
