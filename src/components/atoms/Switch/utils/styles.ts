@@ -42,7 +42,7 @@ export const getStyles = ({
     "after:transition-all",
     "after:duration-300",
   ])
-  const textContainerCls = classNames(["mx-2", "flex", "flex-col", ""])
+  const textContainerCls = classNames(["mx-2", "flex", "flex-col"])
   const textCls = classNames(["text-mdSemiBold"])
   const subTextCls = classNames(["text-smRegular"])
 

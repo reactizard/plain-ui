@@ -9,9 +9,10 @@ const meta: Meta<typeof Switch> = {
 }
 export default meta
 
-type story = StoryObj<typeof Switch>
-export const Primary: story = {
+type Story = StoryObj<typeof Switch>
+export const Primary: Story = {
   args: {
-    label: "",
+    size: "md",
+    color: "success",
   },
 }
