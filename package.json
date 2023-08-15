@@ -9,7 +9,7 @@
     "build": "rollup -c --environment INCLUDE_DEPS,BUILD:production",
     "watch": "rollup -c --watch",
     "dev": "pnpm run build -- --environment BUILD:development",
-    "test": "jest --watch",
+    "test": "jest",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "changelog":"auto-changelog -p --hide-credit --hide-empty-releases"
