@@ -12,7 +12,7 @@
     "test": "jest --watch",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "changelog":"pnpm run auto-changelog --hide-credit -p"
+    "changelog":"auto-changelog -p --hide-credit --hide-empty-releases"
   },
   "author": "LogicalAnt",
   "license": "ISC",
