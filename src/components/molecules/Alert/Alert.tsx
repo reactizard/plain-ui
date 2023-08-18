@@ -1,30 +1,35 @@
+import { IconX } from "@tabler/icons-react"
 import React, { FC, forwardRef } from "react"
 import { getStyles } from "./utils/styles"
 import { AlertProps } from "./utils/types"
 
-const Alert: FC<AlertProps> = forwardRef<HTMLDivElement, AlertProps>(
-  function Alert({ color }, ref) {
+export const Alert: FC<AlertProps> = forwardRef<HTMLDivElement, AlertProps>(
+  function Alert(
+    {
+      color = "success",
+      closable = true,
+      title,
+      description,
+      sideIcon,
+      footer,
+    },
+    ref
+  ) {
     const styles = getStyles({ color })
     return (
       <div className={styles.container} ref={ref}>
         <div className={styles.body}>
           <div className={styles.rlDivider}>
-            <div className={styles.leftPart}>😀</div>
+            <div className={styles.leftPart}>{sideIcon}</div>
             <div className={styles.rightPart}>
-              <div className={styles.header}>
-                <div className={styles.title}>Alert</div>
-                <button className={styles.closer}>✖</button>
+              <div className={styles.headerContainer}>
+                <div className={styles.title}>{title}</div>
+                <div className={styles.closer}>
+                  {closable ? <IconX /> : null}
+                </div>
               </div>
-              <div className={styles.content}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus
-                faucibus sit sit facilisis dictumst bibendum. Lorem ipsum dolor
-                sit amet dictumst ipsum consectetur adipiscing.
-              </div>
-              <div className={styles.footer}>
-                <a href="www.google.com" className="text-blue-500">
-                  Google
-                </a>
-              </div>
+              <p className={styles.description}>{description}</p>
+              <div className={styles.footer}>{footer}</div>
             </div>
           </div>
         </div>
