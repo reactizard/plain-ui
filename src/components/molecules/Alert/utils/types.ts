@@ -1,8 +1,10 @@
-import { ButtonVariant, Colors, CommonProps } from "../../../../theme/constants"
+import { ButtonVariant, Colors } from "../../../../theme/constants"
 
-export interface AlertProps extends CommonProps {
+export interface AlertProps {
   title: string
-  description: React.ReactNode
+  description: string
+  sideIcon?: React.ReactNode
+  footer?: React.ReactNode
   variant: ButtonVariant
   color: Colors
   closable?: boolean
