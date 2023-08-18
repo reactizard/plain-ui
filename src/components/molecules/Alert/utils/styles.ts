@@ -55,6 +55,7 @@ export const getStyles = ({ color }: StyleProps) => {
   const title = classNames(["max-w-[350px]", "truncate"])
   const closer = classNames([
     "closer",
+    "cursor-pointer",
     "flex",
     "w-[24px]",
     "h-[24px]",
@@ -63,6 +64,7 @@ export const getStyles = ({ color }: StyleProps) => {
     "items-center",
     "text-smRegular",
     text["gray"][600],
+    "hover:text-gray-800",
     "-translate-y-[22px]",
     "md:-translate-y-[0px]",
   ])
