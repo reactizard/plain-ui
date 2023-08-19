@@ -3,7 +3,7 @@ import { Colors } from "../../../../theme/constants"
 import { bg, text } from "../../../../theme/mapper"
 import { StyleProps } from "./types"
 
-export const getStyles = ({ color }: StyleProps) => {
+export const getStyles = ({ color, sideIcon }: StyleProps) => {
   const borderColorMapper: Record<Colors, string> = {
     aloha: "border-l-aloha-500",
     azure: "border-l-azure-500",
@@ -22,7 +22,7 @@ export const getStyles = ({ color }: StyleProps) => {
   }
   const container = classNames([
     "container",
-    "h-[154px]",
+    "max-h-[154px]",
     "w-[300px]",
     "sm:w-[500px]",
     "rounded-[5px]",
@@ -30,14 +30,7 @@ export const getStyles = ({ color }: StyleProps) => {
     borderColorMapper[color],
     bg[color][100],
   ])
-  const body = classNames([
-    "body",
-    "flex",
-    "flex-col",
-    "items-start",
-    "gap-[8px]",
-    "p-[16px]",
-  ])
+  const body = classNames(["body", "flex", "flex-col", "gap-[8px]", "p-[16px]"])
   const rlDivider = classNames([
     "rl-divider",
     "flex",
@@ -65,8 +58,8 @@ export const getStyles = ({ color }: StyleProps) => {
     "text-smRegular",
     text["gray"][600],
     "hover:text-gray-800",
-    "-translate-y-[22px]",
-    "md:-translate-y-[0px]",
+    sideIcon ? "-translate-y-[22px]" : "",
+    sideIcon ? "md:-translate-y-[0px]" : "",
   ])
   const description = classNames([
     "max-h-[50px]",

@@ -11,4 +11,4 @@ export interface AlertProps {
   onClose?: React.MouseEventHandler<HTMLButtonElement>
 }
 
-export type StyleProps = Pick<AlertProps, "color">
+export type StyleProps = Pick<AlertProps, "color" | "sideIcon">

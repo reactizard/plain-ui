@@ -12,6 +12,7 @@ import { Alert } from "./Alert"
 type AlertType = Exclude<typeof Alert, CommonProps>
 
 const icons = {
+  none: "",
   AlertTriangle: <IconAlertTriangleFilled className={text["danger"][500]} />,
   Alert: <IconAlertCircleFilled className={text["warning"][500]} />,
   DiscountCheck: <IconDiscountCheckFilled className={text["success"][500]} />,

@@ -18,7 +18,7 @@ export const Alert: FC<AlertProps> = forwardRef<HTMLDivElement, AlertProps>(
     ref
   ) {
     const [opened, { close }] = useDisclosure(true)
-    const styles = getStyles({ color })
+    const styles = getStyles({ color, sideIcon })
     return (
       <AnimatePresence>
         {opened ? (
@@ -34,13 +34,17 @@ export const Alert: FC<AlertProps> = forwardRef<HTMLDivElement, AlertProps>(
                 <div className={styles.leftPart}>{sideIcon}</div>
                 <div className={styles.rightPart}>
                   <div className={styles.headerContainer}>
-                    <div className={styles.title}>{title}</div>
-                    <div className={styles.closer} onClick={close}>
-                      {closable ? <IconX /> : null}
-                    </div>
+                    {title ? <div className={styles.title}>{title}</div> : null}
+                    {closable ? (
+                      <div className={styles.closer} onClick={close}>
+                        <IconX />
+                      </div>
+                    ) : null}
                   </div>
                   <p className={styles.description}>{description}</p>
-                  <div className={styles.footer}>{footer}</div>
+                  {footer ? (
+                    <div className={styles.footer}>{footer}</div>
+                  ) : null}
                 </div>
               </div>
             </div>
