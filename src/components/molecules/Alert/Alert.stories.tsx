@@ -40,6 +40,7 @@ export const Primary: story = {
     closable: true,
     sideIcon: <IconDiscountCheckFilled className={text["success"][500]} />,
     footer: <Link href="http://www.google.com" text="Search" target="_blank" />,
+    onClose: (e) => console.log("The alert has been closed", e.type),
   },
   argTypes: {
     onClose: { control: false },
