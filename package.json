@@ -85,6 +85,7 @@
     "react-dom": "18.2.0"
   },
   "dependencies": {
-    "@tabler/icons-react": "^2.22.0"
+    "@tabler/icons-react": "^2.22.0",
+    "framer-motion": "^10.16.0"
   }
 }
