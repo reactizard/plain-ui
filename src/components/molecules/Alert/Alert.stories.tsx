@@ -33,6 +33,7 @@ type story = StoryObj<typeof Alert>
 export const Primary: story = {
   args: {
     color: "success",
+    variant: "filled",
     title: "Alert",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus faucibus sit sit facilisis dictumst bibendum. Lorem ipsum dolor sit amet dictumst ipsum consectetur adipiscing.",

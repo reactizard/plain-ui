@@ -9,6 +9,7 @@ export const Alert: FC<AlertProps> = forwardRef<HTMLDivElement, AlertProps>(
   function Alert(
     {
       color = "success",
+      variant = "filled",
       closable = true,
       title,
       description,
@@ -18,7 +19,7 @@ export const Alert: FC<AlertProps> = forwardRef<HTMLDivElement, AlertProps>(
     ref
   ) {
     const [opened, { close }] = useDisclosure(true)
-    const styles = getStyles({ color, sideIcon })
+    const styles = getStyles({ color, sideIcon, variant })
     return (
       <AnimatePresence>
         {opened ? (

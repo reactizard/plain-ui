@@ -5,10 +5,10 @@ export interface AlertProps {
   description: string
   sideIcon?: React.ReactNode
   footer?: React.ReactNode
-  variant: ButtonVariant
+  variant?: Exclude<ButtonVariant, "plain">
   color: Colors
   closable?: boolean
   onClose?: React.MouseEventHandler<HTMLButtonElement>
 }
 
-export type StyleProps = Pick<AlertProps, "color" | "sideIcon">
+export type StyleProps = Pick<AlertProps, "color" | "sideIcon" | "variant">

@@ -1,9 +1,9 @@
 import classNames from "classnames"
 import { Colors } from "../../../../theme/constants"
-import { bg, text } from "../../../../theme/mapper"
+import { bg, border, text } from "../../../../theme/mapper"
 import { StyleProps } from "./types"
 
-export const getStyles = ({ color, sideIcon }: StyleProps) => {
+export const getStyles = ({ color, sideIcon, variant }: StyleProps) => {
   const borderColorMapper: Record<Colors, string> = {
     aloha: "border-l-aloha-500",
     azure: "border-l-azure-500",
@@ -20,6 +20,12 @@ export const getStyles = ({ color, sideIcon }: StyleProps) => {
     warning: "border-l-warning-500",
     yellow: "border-l-yellow-500",
   }
+
+  const variantMapper: Record<NonNullable<StyleProps["variant"]>, string[]> = {
+    filled: [bg[color][100]],
+    light: [bg["gray"][100]],
+    outlined: [border[color][200], "border"],
+  }
   const container = classNames([
     "container",
     "max-h-[154px]",
@@ -28,7 +34,7 @@ export const getStyles = ({ color, sideIcon }: StyleProps) => {
     "rounded-[5px]",
     "border-l-[4px]",
     borderColorMapper[color],
-    bg[color][100],
+    variant ? variantMapper[variant] : "",
   ])
   const body = classNames(["body", "flex", "flex-col", "gap-[8px]", "p-[16px]"])
   const rlDivider = classNames([
