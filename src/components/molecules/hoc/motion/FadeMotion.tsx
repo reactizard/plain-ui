@@ -1,6 +1,6 @@
-import { AnimatePresence, motion } from "framer-motion"
+import classNames from "classnames"
+import CSSMotion from "rc-motion"
 import React, { FC } from "react"
-
 interface FadeMotionProps {
   shouldFade: boolean
   children?: React.ReactNode
@@ -8,17 +8,24 @@ interface FadeMotionProps {
 
 export const FadeMotion: FC<FadeMotionProps> = ({ shouldFade, children }) => {
   return (
-    <AnimatePresence>
-      {shouldFade ? (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0, transition: { duration: 0.5 } }}
+    <CSSMotion
+      visible={shouldFade}
+      motionName="animation"
+      onEnterStart={() => ({ opacity: 0 })}
+      onEnterActive={() => ({ opacity: 1 })}
+      onLeaveStart={() => ({ opacity: 1 })}
+      onLeaveActive={() => ({ opacity: 0 })}
+    >
+      {({ className, style }, ref) => (
+        <div
+          ref={ref}
+          style={style}
+          className={classNames(className, "duration-[500ms] transition-all")}
         >
           {children}
-        </motion.div>
-      ) : null}
-    </AnimatePresence>
+        </div>
+      )}
+    </CSSMotion>
   )
 }
 
