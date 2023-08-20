@@ -16,18 +16,15 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 8
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: "pnpm"
+          cache: "npm"
       - name: Install dependencies
-        run: pnpm install
+        run: npm ci
       - name: Run tests
-        run: pnpm run test --coverage --collectCoverageFrom="./src/**"
+        run: npm run test --coverage --collectCoverageFrom="./src/**"
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
         env:
