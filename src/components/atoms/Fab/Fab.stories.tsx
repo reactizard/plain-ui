@@ -28,6 +28,13 @@ const meta: Meta<typeof Fab> = {
       },
     },
   },
+  decorators: [
+    (Story) => (
+      <div className="flex items-center justify-center h-32">
+        <Story />
+      </div>
+    ),
+  ],
 }
 
 export default meta
