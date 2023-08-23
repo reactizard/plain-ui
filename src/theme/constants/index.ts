@@ -5,6 +5,7 @@ export {
   ButtonVariant,
   Direction,
   LabelVariant,
+  OnlineStatus,
   Position,
   ProgressVariant,
   RatingVariant,
