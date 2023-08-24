@@ -1,11 +1,12 @@
 import { IconUserCircle } from "@tabler/icons-react"
-import React, { FC, forwardRef, useEffect, useRef } from "react"
+import React, { forwardRef, useEffect, useRef } from "react"
 import { getAbbr } from "../../../theme/functions"
+import AvatarGroup from "./Group/AvatarGroup"
 import { getStyles } from "./utils/styles"
-import { AvatarProps } from "./utils/types"
-export const Avatar: FC<AvatarProps> = forwardRef<HTMLDivElement, AvatarProps>(
+import { AvatarComponent, AvatarProps } from "./utils/types"
+export const Avatar: AvatarComponent = forwardRef<HTMLDivElement, AvatarProps>(
   function Avatar(
-    { imgURL, children, onlineStatus, color = "primary", size = "md" },
+    { imgURL, children, onlineStatus, color = "primary", size = "md", ...rest },
     ref
   ) {
     const childRef = useRef<HTMLDivElement>(null)
@@ -24,7 +25,7 @@ export const Avatar: FC<AvatarProps> = forwardRef<HTMLDivElement, AvatarProps>(
     }, [children, imgURL])
 
     return (
-      <div ref={ref} className={styles.container}>
+      <div ref={ref} className={styles.container} {...rest}>
         {!imgURL ? (
           <div ref={childRef} className={styles.childContainer}>
             {children || <IconUserCircle className="" />}
@@ -38,4 +39,5 @@ export const Avatar: FC<AvatarProps> = forwardRef<HTMLDivElement, AvatarProps>(
   }
 )
 
+Avatar.Group = AvatarGroup
 export default Avatar

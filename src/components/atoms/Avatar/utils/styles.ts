@@ -19,7 +19,13 @@ export const getStyles = ({ color, onlineStatus, size }: StyleProps) => {
     },
   }
 
-  const container = classNames(["container", "max-w-fit", "flex", "items-end"])
+  const container = classNames([
+    "container",
+    "max-w-fit",
+    "flex",
+    "items-end",
+    "rounded-full",
+  ])
   const childContainer = classNames([
     "childContainer",
     size ? sizeMapper[size].child : "",
@@ -45,5 +51,12 @@ export const getStyles = ({ color, onlineStatus, size }: StyleProps) => {
     "border-white",
   ])
 
-  return { container, childContainer, avatarImage, online }
+  const groupContainer = classNames([
+    "GroupContainer",
+    "flex",
+    "max-w-fit",
+    "items-end",
+  ])
+
+  return { container, childContainer, avatarImage, online, groupContainer }
 }
