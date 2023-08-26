@@ -7,7 +7,7 @@ export const Breadcrumb: BreadcrumbComponent = forwardRef<
   HTMLAnchorElement,
   BreadcrumbProps
 >(function Breadcrumb(
-  { color = "primary", href, children, className, ...rest },
+  { color = "", href, children, className = "", ...rest },
   ref
 ) {
   const styles = getStyles({ color })
@@ -15,9 +15,7 @@ export const Breadcrumb: BreadcrumbComponent = forwardRef<
     <a
       ref={ref}
       href={href}
-      className={`${
-        className ? className : ""
-      } text-smRegular px-[8px] hover:bg-gray-200 rounded-sm`}
+      className={`${className} ${styles.link}`}
       {...rest}
     >
       {children}

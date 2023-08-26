@@ -1,6 +1,8 @@
 import { Meta, StoryObj } from "@storybook/react"
+import { IconArrowForward } from "@tabler/icons-react"
 import React from "react"
 import Breadcrumb from "./Breadcrumb"
+import { BreadcrumbProps } from "./utils/types"
 const meta: Meta<typeof Breadcrumb> = {
   title: "molecules/Breadcrumb",
   component: Breadcrumb,
@@ -12,23 +14,23 @@ type Story = StoryObj<typeof Breadcrumb>
 export const primary: Story = {
   args: {
     color: "primary",
-    children: "helo",
+    children: "Home",
   },
 }
 
-const GroupTemplate: Story = {
+type GroupStory = StoryObj<typeof Breadcrumb.Group>
+const GroupTemplate: GroupStory = {
   argTypes: {},
-  render: () => {
+  render: ({ items, ...args }: any) => {
     return (
-      <Breadcrumb.Group>
-        <Breadcrumb>Hello</Breadcrumb>
-        <Breadcrumb>Adam Smith</Breadcrumb>
-        <Breadcrumb> Ishant Patel </Breadcrumb>
-        <Breadcrumb>Hello</Breadcrumb>
-        <Breadcrumb>Milan Farmer</Breadcrumb>
-        <Breadcrumb>Hello</Breadcrumb>
-        <Breadcrumb>Hello</Breadcrumb>
-        <Breadcrumb>Glen McCanon</Breadcrumb>
+      <Breadcrumb.Group color={args.color}>
+        {items.map((item: BreadcrumbProps, index: number) => {
+          return (
+            <Breadcrumb key={index} color={item.color}>
+              {item.children}
+            </Breadcrumb>
+          )
+        })}
       </Breadcrumb.Group>
     )
   },
@@ -36,6 +38,55 @@ const GroupTemplate: Story = {
 
 export const GroupBreadcrumb = {
   ...GroupTemplate,
+  args: {
+    color: "aloha",
+    items: [
+      { children: "Home" },
+      { children: "Profile" },
+      { children: "Settings" },
+      { children: "Config", color: "danger" },
+      { children: "Theme" },
+    ],
+  },
+}
+
+const CustomGroup: GroupStory = {
+  argTypes: {},
+  render: ({ items, ...args }: any) => {
+    return (
+      <Breadcrumb.Group color={args.color} separator={args.separator}>
+        {items.map((item: BreadcrumbProps, index: number) => {
+          return (
+            <Breadcrumb
+              key={index}
+              color={item.color}
+              href={item.href}
+              {...item}
+            >
+              {item.children}
+            </Breadcrumb>
+          )
+        })}
+      </Breadcrumb.Group>
+    )
+  },
+}
+
+export const CustomGroupTemplate = {
+  ...CustomGroup,
+  args: {
+    separator: <IconArrowForward className="text-success-300" />,
+    color: "success",
+    items: [
+      { children: "Home" },
+      { children: "Profile" },
+      { children: "Settings" },
+      {
+        children: "Config",
+      },
+      { children: "Theme", href: "https://tailwindcss.com", target: "_blank" },
+    ],
+  },
 }
 
 export default meta

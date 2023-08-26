@@ -2,7 +2,7 @@ import { HTMLAttributes } from "react"
 import { Colors } from "../../../../theme/constants"
 
 export interface BreadcrumbProps extends HTMLAttributes<HTMLAnchorElement> {
-  color?: Colors
+  color?: Colors | ""
   href?: string
   children?: React.ReactNode
   className?: string

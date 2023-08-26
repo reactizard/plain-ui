@@ -2,12 +2,14 @@ import { IconChevronRight } from "@tabler/icons-react"
 import React, { FC, forwardRef, useState } from "react"
 import { text } from "../../../../theme/mapper"
 import Breadcrumb from "../Breadcrumb"
+import { getStyles } from "../utils/styles"
 import { BreadcrumbGroupProps } from "../utils/types"
 
 const BreadcrumbGroup: FC<BreadcrumbGroupProps> = forwardRef<
   HTMLDivElement,
   BreadcrumbGroupProps
 >(({ children, separator, color = "gray" }, ref) => {
+  const styles = getStyles({ color })
   const numberOfItems = React.Children.count(children)
 
   const [allVisible, setAllVisible] = useState(false)
@@ -18,26 +20,27 @@ const BreadcrumbGroup: FC<BreadcrumbGroupProps> = forwardRef<
   )
   return (
     <div ref={ref}>
-      <nav className="text-gray-300">
-        <ol className="list-none p-0 inline-flex">
+      <nav className={styles.groupNav}>
+        <ol className={styles.groupOrderList}>
           {React.Children.map(children, (child, index) => {
             const showSeparator = index + 1 < numberOfItems
-            const initialVisible =
-              index == 0 || index == 1 || index == numberOfItems - 1
-
+            const initialVisible = index <= 1 || index == numberOfItems - 1
             const showDot = numberOfItems > 3 && index == 2
 
             if (React.isValidElement<HTMLDivElement>(child)) {
               const breadcrumbElement = React.cloneElement(child, {
                 ...child.props,
-                className: `${text[color][400]}`,
+                className: styles.groupItem,
                 key: index,
                 style: { ...child.props.style },
               })
 
               const expander = (
-                <li className="flex items-center" key={"hello"}>
-                  <Breadcrumb onClick={() => setAllVisible(true)}>
+                <li className={styles.groupList} key={"hello"}>
+                  <Breadcrumb
+                    className={styles.groupItem}
+                    onClick={() => setAllVisible(true)}
+                  >
                     ...
                   </Breadcrumb>
                   {separator}
@@ -47,7 +50,7 @@ const BreadcrumbGroup: FC<BreadcrumbGroupProps> = forwardRef<
               return (
                 <>
                   <li
-                    className={`flex items-center ${
+                    className={`${styles.groupList} ${
                       allVisible || initialVisible ? "" : "hidden"
                     }`}
                   >
@@ -58,7 +61,6 @@ const BreadcrumbGroup: FC<BreadcrumbGroupProps> = forwardRef<
                 </>
               )
             }
-            //return child
           })}
         </ol>
       </nav>
