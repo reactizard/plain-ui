@@ -120,7 +120,7 @@ import { $component$props } from "./utils/types"
 import { getStyles } from "./utils/styles"
 
 export const $component: FC<$component$props> = forwardRef<HTMLDivElement, $component$props>(
-  function Avatar({ color = "primary" },ref) {
+  function $component({ color = "primary" },ref) {
     const styles = getStyles({ color })
     return (<div ref={ref}>$component</div>)
 })
