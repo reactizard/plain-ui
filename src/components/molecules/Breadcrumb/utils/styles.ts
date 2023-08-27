@@ -4,6 +4,7 @@ import { StyleProps } from "./types"
 
 export const getStyles = ({ color }: StyleProps) => {
   const link = classNames([
+    "pUI-Breadcrumb",
     "text-smRegular",
     "px-[8px]",
     color ? text[color][300] : "",
