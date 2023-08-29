@@ -2,11 +2,22 @@
 
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
-#### [v0.0.5](https://github.com/reactizard/plain-ui/compare/v0.0.5...v0.0.5)
+#### [v0.1.0](https://github.com/reactizard/plain-ui/compare/v0.0.6...v0.1.0)
 
-- chore: :package: use pnpm instead npm [`0bfb866`](https://github.com/reactizard/plain-ui/commit/0bfb8667a37ac1b4b22ec4273473f30fa4622f8e)
-- feat: :sparkles: add test and release workflow [`084220a`](https://github.com/reactizard/plain-ui/commit/084220a646b886acef7119bfe7a6508d54777cde)
-- chore: :package: add auto-changelog package and command [`f80cb6a`](https://github.com/reactizard/plain-ui/commit/f80cb6a7fcf13521f07b01d70974dca51fcb369b)
+> 29 August 2023
+
+- feat: :sparkles: Add Toast component [`#58`](https://github.com/reactizard/plain-ui/pull/58)
+- feat: :sparkles: remove pnpm dependency [`#48`](https://github.com/reactizard/plain-ui/pull/48)
+- feat: :sparkles: add Alert component [`f88e6af`](https://github.com/reactizard/plain-ui/commit/f88e6af649ae41fbf4ed724b8f00d6cefc5476ef)
+- feat: :sparkles: add Breadcrumb component [`95d0904`](https://github.com/reactizard/plain-ui/commit/95d09046fef1765252ccb01578a63756251da071)
+- feat: add Avatar component. [`61a7335`](https://github.com/reactizard/plain-ui/commit/61a733503a5dce2dae5f4008cdd56b26a0f4a211)
+
+#### [v0.0.6](https://github.com/reactizard/plain-ui/compare/v0.0.5...v0.0.6)
+
+> 15 August 2023
+
+- Add gh workflow and changelog (#43) [`#44`](https://github.com/reactizard/plain-ui/pull/44)
+- fix: :bug: update test script and release workflow tag pattern [`102f807`](https://github.com/reactizard/plain-ui/commit/102f807ee2779a8331b8f3f196079f0a6c19a77e)
 
 #### [v0.0.4](https://github.com/reactizard/plain-ui/compare/v0.0.3...v0.0.4)
 
