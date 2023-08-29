@@ -28,9 +28,9 @@ const meta: Meta<AlertType> = {
     },
   },
 }
-type story = StoryObj<typeof Alert>
+type Story = StoryObj<typeof Alert>
 
-export const Primary: story = {
+export const Primary: Story = {
   args: {
     color: "success",
     variant: "filled",
