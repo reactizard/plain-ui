@@ -5,11 +5,9 @@ import {
   IconDiscountCheckFilled,
 } from "@tabler/icons-react"
 import React from "react"
-import { CommonProps } from "../../../theme/constants"
 import { text } from "../../../theme/mapper"
-import Link from "../../atoms/Link/Link"
-import { Alert } from "./Alert"
-type AlertType = Exclude<typeof Alert, CommonProps>
+import Link from "../../atoms/Link"
+import Toast from "./Toast"
 
 const icons = {
   none: "",
@@ -18,31 +16,28 @@ const icons = {
   DiscountCheck: <IconDiscountCheckFilled className={text["success"][500]} />,
 }
 
-const meta: Meta<AlertType> = {
-  title: "Molecules/Alert",
-  component: Alert,
+const meta: Meta<typeof Toast> = {
+  title: "molecules/Toast",
+  component: Toast,
   tags: ["autodocs"],
-  parameters: {
-    controls: {
-      exclude: [],
-    },
-  },
 }
-type Story = StoryObj<typeof Alert>
+
+type Story = StoryObj<typeof Toast>
 
 export const Primary: Story = {
   args: {
     color: "success",
     variant: "filled",
-    title: "Alert",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus faucibus sit sit facilisis dictumst bibendum. Lorem ipsum dolor sit amet dictumst ipsum consectetur adipiscing.",
+    title: "Toast",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing.",
     closable: true,
+    autoClose: true,
     sideIcon: <IconDiscountCheckFilled className={text["success"][500]} />,
     footer: <Link href="http://www.google.com" text="Search" target="_blank" />,
-    onClose: (e) => console.log("The alert has been closed", e.type),
+    onClose: (e) => console.log("The Toast has been closed", e.type),
   },
   argTypes: {
+    autoClose: { description: "After 10 second" },
     onClose: { control: false },
     footer: { type: "string" || "function" },
     sideIcon: {
@@ -52,6 +47,15 @@ export const Primary: Story = {
         type: "select",
       },
     },
+  },
+}
+export const minimal: Story = {
+  args: {
+    variant: "filled",
+    title: "Lorem ipsum dolor sit amet",
+    color: "success",
+    closable: true,
+    autoClose: false,
   },
 }
 
