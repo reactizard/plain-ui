@@ -14,3 +14,4 @@ export { default as Tooltip } from "./atoms/Tooltip"
 
 // Molecules export
 export { default as Alert } from "./molecules/Alert"
+export { default as Banner } from "./molecules/Banner"
