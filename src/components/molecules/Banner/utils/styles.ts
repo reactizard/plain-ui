@@ -7,8 +7,6 @@ export const getStyles = ({ color }: StyleProps) => {
     bg["gray"][100],
     "border",
     border["gray"][200],
-    "shadow-gray-500/30",
-    "shadow-md",
   ])
   const container = classNames([
     "container",
@@ -23,6 +21,8 @@ export const getStyles = ({ color }: StyleProps) => {
     color ? bg[color][500] : whiteBgStyles,
     "p-[16px]",
     "rounded-[8px]",
+    "shadow-md",
+    "shadow-gray-500/50",
   ])
   const icon = classNames(["icon"])
   const body = classNames([

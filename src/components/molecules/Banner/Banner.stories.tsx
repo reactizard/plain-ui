@@ -1,5 +1,9 @@
 import { Meta, StoryObj } from "@storybook/react"
-import { IconBrandFacebookFilled, IconBrandReact } from "@tabler/icons-react"
+import {
+  IconBrandFacebookFilled,
+  IconBrandReact,
+  IconX,
+} from "@tabler/icons-react"
 import React from "react"
 import { Void } from "../../../icons"
 import Button from "../../atoms/Button"
@@ -10,7 +14,9 @@ const icons = {
   None: null,
   Void: <Void />,
   Facebook: (
-    <IconBrandFacebookFilled style={{ background: "white", color: "blue" }} />
+    <IconBrandFacebookFilled
+      style={{ background: "white", color: "#0E8FF2" }}
+    />
   ),
   React: <IconBrandReact color={"cyan"} />,
 }
@@ -24,6 +30,7 @@ const dismissables = {
       style={{ color: "white" }}
     />
   ),
+  Icon: <IconX style={{ cursor: "pointer" }} />,
 }
 
 const meta: Meta<typeof Banner> = {
