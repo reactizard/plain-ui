@@ -46,7 +46,7 @@ export const GroupRadio = {
       { label: "Radio two", value: 2 },
       { label: "Radio three", value: 3 },
     ],
-    direction: "column",
+    direction: "vertical",
     name: "radio",
     size: "md",
   },
