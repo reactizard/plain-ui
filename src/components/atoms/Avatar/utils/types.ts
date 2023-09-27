@@ -15,6 +15,7 @@ export interface AvatarComponent extends React.FC<AvatarProps> {
 export type StyleProps = Pick<AvatarProps, "color" | "onlineStatus" | "size">
 
 export interface AvatarGroupProps {
+  size?: AvatarProps["size"]
   children?: React.ReactNode[]
   more?: number
 }
