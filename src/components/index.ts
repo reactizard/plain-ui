@@ -1,4 +1,5 @@
 // Atoms export
+export { default as Avatar } from "./atoms/Avatar"
 export { default as Button } from "./atoms/Button"
 export { default as Checkbox } from "./atoms/Checkbox"
 export { default as Chip } from "./atoms/Chip"

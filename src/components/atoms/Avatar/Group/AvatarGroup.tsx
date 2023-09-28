@@ -13,9 +13,10 @@ const AvatarGroup: FC<AvatarGroupProps> = forwardRef<
   return (
     <div className={groupContainer} ref={ref}>
       {React.Children.map(children, (child, index) => {
-        if (React.isValidElement<HTMLDivElement>(child)) {
+        if (React.isValidElement<HTMLDivElement & AvatarGroupProps>(child)) {
           const avatarElement = React.cloneElement(child, {
             ...child.props,
+            size: size,
             style: {
               ...child.props.style,
               border: "1px solid white",
@@ -28,6 +29,7 @@ const AvatarGroup: FC<AvatarGroupProps> = forwardRef<
       })}
       {more ? (
         <Avatar
+          size={size}
           style={{
             border: "1px solid white",
           }}
