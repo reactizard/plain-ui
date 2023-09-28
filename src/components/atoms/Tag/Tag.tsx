@@ -1,20 +1,18 @@
 import React from "react"
-import { ButtonVariant, Colors } from "../../../theme/constants"
 import { getStyles } from "./utils/styles"
-
-export interface TagProps {
-  text: string
-  variant: Extract<ButtonVariant, "filled" | "plain">
-  color: Colors
-}
+import { TagProps } from "./utils/types"
 
 export const Tag: React.FC<TagProps> = React.forwardRef<
   HTMLDivElement,
   TagProps
->(function Tag({ color = "primary", text, variant = "filled" }, ref) {
+>(function Tag(
+  { color = "primary", text, variant = "filled", size = "md" },
+  ref
+) {
   const classes = getStyles({
     variant: variant,
     color: color,
+    size,
   })
 
   return (
