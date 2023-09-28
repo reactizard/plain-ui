@@ -27,10 +27,13 @@ export const getStyles = ({ color, variant, orientation }: StyleProps) => {
     },
   }
 
-  console.log(dimenstionMapper)
-
   const container = classNames([
     "container",
+    "flex",
+    "flex-col",
+    "items-start",
+    "gap-2",
+    "p-[12px]",
     variant && orientation ? dimenstionMapper[variant][orientation].width : "",
     "rounded-[8px]",
     "border",
@@ -39,5 +42,53 @@ export const getStyles = ({ color, variant, orientation }: StyleProps) => {
     "shadow-gray-500/50",
   ])
 
-  return { container }
+  const headContainer = classNames([
+    "flex",
+    "w-full",
+    "justify-center",
+    "items-start",
+    "self-stretch",
+    "border-b-[1px]",
+    "border-b-gray-200",
+    "pb-[12px]",
+  ])
+  const actionsContainer = classNames([
+    "flex",
+    "items-center",
+    "justify-between",
+    "w-full",
+  ])
+
+  const statsContainer = classNames(["flex", "items-center", "gap-[12px]"])
+  const statItemContainer = classNames([
+    "flex",
+    "flex-row",
+    "gap-[1px]",
+    "items-center",
+    "justify-center",
+    "text-smRegular",
+  ])
+
+  const bodyContainer = classNames(["flex", "flex-col", "w-full", "gap-1"])
+  const bodyHeading = classNames([
+    "flex items-center",
+    "justify-between",
+    "gap-[12px]",
+    "w-full",
+  ])
+  const tagsContainer = classNames(["flex", "flex-row", "gap-1"])
+  const title = classNames(["flex-[1 0 0]", "text-lgSemiBold"])
+  const actionButtonsContainer = classNames(["flex", "flex-row", "gap-1"])
+  return {
+    container,
+    actionsContainer,
+    statsContainer,
+    headContainer,
+    statItemContainer,
+    actionButtonsContainer,
+    bodyContainer,
+    tagsContainer,
+    bodyHeading,
+    title,
+  }
 }

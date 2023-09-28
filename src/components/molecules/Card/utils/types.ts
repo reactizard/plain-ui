@@ -3,6 +3,11 @@ import { Colors, Direction } from "../../../../theme/constants"
 
 export type CardVariant = "card" | "user" | "button"
 
+export interface StatShape {
+  icon?: ReactNode
+  number?: number
+}
+
 export interface CardProps {
   color?: Colors
   cover?: string
@@ -13,7 +18,7 @@ export interface CardProps {
   subtitle?: string
   users?: ReactNode
   actions?: ReactNode[]
-  stats?: ReactNode[]
-  tag?: ReactNode
+  stats?: StatShape[]
+  tags?: ReactNode[]
 }
 export type StyleProps = Pick<CardProps, "color" | "variant" | "orientation">
