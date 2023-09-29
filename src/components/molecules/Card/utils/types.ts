@@ -1,5 +1,5 @@
 import { ReactNode } from "react"
-import { Colors, Direction } from "../../../../theme/constants"
+import { Direction } from "../../../../theme/constants"
 
 export type CardVariant = "card" | "user" | "button"
 
@@ -9,7 +9,6 @@ export interface StatShape {
 }
 
 export interface CardProps {
-  color?: Colors
   cover?: string
   avatar?: string
   variant?: CardVariant
@@ -21,4 +20,4 @@ export interface CardProps {
   stats?: StatShape[]
   tags?: ReactNode[]
 }
-export type StyleProps = Pick<CardProps, "color" | "variant" | "orientation">
+export type StyleProps = Pick<CardProps, "variant" | "orientation">

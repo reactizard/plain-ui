@@ -11,7 +11,7 @@ type dimenstionMapperType = Record<
   NonNullable<StyleProps["variant"]>,
   Record<NonNullable<StyleProps["orientation"]>, dimension>
 >
-export const getStyles = ({ color, variant, orientation }: StyleProps) => {
+export const getStyles = ({ variant, orientation }: StyleProps) => {
   const dimenstionMapper: dimenstionMapperType = {
     card: {
       vertical: { height: "", width: "w-[370px]" },
@@ -30,7 +30,7 @@ export const getStyles = ({ color, variant, orientation }: StyleProps) => {
   const container = classNames([
     "container",
     "flex",
-    "flex-col",
+    orientation == "vertical" ? "flex-col" : "flex-row",
     "items-start",
     "gap-2",
     "p-[12px]",
@@ -69,9 +69,18 @@ export const getStyles = ({ color, variant, orientation }: StyleProps) => {
     "text-smRegular",
   ])
 
-  const bodyContainer = classNames(["flex", "flex-col", "w-full", "gap-1"])
+  const bodyContainer = classNames([
+    "flex",
+    "flex-col",
+    "w-full",
+    "h-full",
+    "gap-[8px]",
+    "flex-start",
+    "justify-between",
+  ])
   const bodyHeading = classNames([
     "flex items-center",
+
     "justify-between",
     "gap-[12px]",
     "w-full",
