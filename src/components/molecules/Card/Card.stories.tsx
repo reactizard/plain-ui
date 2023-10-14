@@ -17,6 +17,7 @@ export const primary: Story = {
     users: { type: "function" },
     actions: { type: "function" },
     stats: { type: "function" },
+    variant: { table: { disable: true } },
   },
   args: {
     title: "Heading",
