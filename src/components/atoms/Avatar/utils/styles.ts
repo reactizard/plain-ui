@@ -4,18 +4,24 @@ import { bg, text } from "../../../../theme/mapper"
 import { StyleProps } from "./types"
 
 export const getStyles = ({ color, onlineStatus, size }: StyleProps) => {
-  const sizeMapper: Record<Size, { child: string[]; online: string[] }> = {
+  const sizeMapper: Record<
+    Size,
+    { child: string[]; online: string[]; onlineSpacing: string }
+  > = {
     lg: {
       child: ["w-[40px]", "h-[40px]"],
-      online: ["w-[12px]", "h-[12px]", "-translate-x-[12px]", "border-[2px]"],
+      online: ["w-[12px]", "h-[12px]", "border-[2px]"],
+      onlineSpacing: "space-x-[-11px]",
     },
     md: {
       child: ["w-[32px]", "h-[32px]"],
-      online: ["w-[8px]", "h-[8px]", "-translate-x-[8px]", "border-[2px]"],
+      online: ["w-[8px]", "h-[8px]", "border-[2px]"],
+      onlineSpacing: "space-x-[-8px]",
     },
     sm: {
       child: ["w-[24px]", "h-[24px]"],
-      online: ["w-[5px]", "h-[5px]", "-translate-x-[5px]", "border-[1px]"],
+      online: ["w-[5px]", "h-[5px]", "border-[1px]"],
+      onlineSpacing: "space-x-[-5px]",
     },
   }
 
@@ -25,6 +31,7 @@ export const getStyles = ({ color, onlineStatus, size }: StyleProps) => {
     "flex",
     "items-end",
     "rounded-full",
+    size ? sizeMapper[size].onlineSpacing : "",
   ])
   const childContainer = classNames([
     "childContainer",
@@ -54,8 +61,8 @@ export const getStyles = ({ color, onlineStatus, size }: StyleProps) => {
   const groupContainer = classNames([
     "GroupContainer",
     "flex",
-    "max-w-fit",
-    "items-end",
+    size ? sizeMapper[size].onlineSpacing : "",
+    "hover:space-x-[0px]",
   ])
 
   return { container, childContainer, avatarImage, online, groupContainer }
