@@ -48,9 +48,9 @@ export const getStyles = ({ variant, orientation }: StyleProps) => {
     "justify-center",
     "items-start",
     "self-stretch",
-    "border-b-[1px]",
-    "border-b-gray-200",
-    "pb-[12px]",
+    orientation == "vertical" ? "border-b-[1px]" : "border-r-[1px]",
+    orientation == "vertical" ? "border-b-gray-200" : "border-r-gray-200",
+    orientation == "vertical" ? "pb-[12px]" : "pr-[12px]",
   ])
   const actionsContainer = classNames([
     "flex",
