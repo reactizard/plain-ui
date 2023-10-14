@@ -6,21 +6,19 @@ import { AvatarGroupProps } from "../utils/types"
 const AvatarGroup: FC<AvatarGroupProps> = forwardRef<
   HTMLDivElement,
   AvatarGroupProps
->(function AvatarGroup({ children, more }, ref) {
+>(function AvatarGroup({ children, more, size = "md" }, ref) {
   const MaxMoreToShow = 9
-  const TranslateMultiplier = 12
   more = more && more > MaxMoreToShow ? MaxMoreToShow : more
-  const { groupContainer } = getStyles({})
-
+  const { groupContainer } = getStyles({ size })
   return (
     <div className={groupContainer} ref={ref}>
       {React.Children.map(children, (child, index) => {
-        if (React.isValidElement<HTMLDivElement>(child)) {
+        if (React.isValidElement<HTMLDivElement & AvatarGroupProps>(child)) {
           const avatarElement = React.cloneElement(child, {
             ...child.props,
+            size: size,
             style: {
               ...child.props.style,
-              transform: `translateX(-${index * TranslateMultiplier}px)`,
               border: "1px solid white",
             },
           })
@@ -31,10 +29,8 @@ const AvatarGroup: FC<AvatarGroupProps> = forwardRef<
       })}
       {more ? (
         <Avatar
+          size={size}
           style={{
-            transform: `translateX(-${
-              React.Children.count(children) * TranslateMultiplier
-            }px)`,
             border: "1px solid white",
           }}
         >
