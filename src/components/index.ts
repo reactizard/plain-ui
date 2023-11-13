@@ -16,3 +16,5 @@ export { default as Tooltip } from "./atoms/Tooltip"
 // Molecules export
 export { default as Alert } from "./molecules/Alert"
 export { default as Banner } from "./molecules/Banner"
+export { default as Breadcrumb } from "./molecules/Breadcrumb"
+export { default as Dialog } from "./molecules/Dialog"
