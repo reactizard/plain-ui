@@ -11,6 +11,8 @@ import typescript from "rollup-plugin-typescript2"
 import { visualizer } from "rollup-plugin-visualizer"
 import packageJson from "./package.json"
 
+const isProduction = process.env.BUILD === 'production'
+
 const config = [
   {
     input: "./src/index.ts",
@@ -18,12 +20,12 @@ const config = [
       {
         file: packageJson.main,
         format: "cjs",
-        sourcemap: true,
+        sourcemap: !isProduction,
       },
       {
         file: packageJson.module,
         format: "esm",
-        sourcemap: true,
+        sourcemap: !isProduction,
       },
     ],
     plugins: [
