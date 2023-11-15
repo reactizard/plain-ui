@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
+#### [v0.2.1](https://github.com/reactizard/plain-ui/compare/v0.2.0...v0.2.1)
+
+> 15 November 2023
+
+- docs: :memo: update changelog(v0.2.0) [`675e613`](https://github.com/reactizard/plain-ui/commit/675e613836dd3b5061e63b75d7cdd9e428073fc6)
+- build: :building_construction: update rollup config to remove sourcemap on production [`7bc4ca4`](https://github.com/reactizard/plain-ui/commit/7bc4ca465f4c40fa58be2f92a5c4f50ac69e1e4f)
+
 #### [v0.2.0](https://github.com/reactizard/plain-ui/compare/v0.1.0...v0.2.0)
 
 > 15 November 2023
