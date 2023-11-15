@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
+#### [v0.2.0](https://github.com/reactizard/plain-ui/compare/v0.1.0...v0.2.0)
+
+> 15 November 2023
+
+- Logical ant/issue59 (#60) [`#61`](https://github.com/reactizard/plain-ui/pull/61)
+- Add Dialog, Card [`434d302`](https://github.com/reactizard/plain-ui/commit/434d3023c65dda91be2062a7546aab037d0886fc)
+- docs: :memo: update changelog(v0.1.0) [`9f3fc20`](https://github.com/reactizard/plain-ui/commit/9f3fc208e8f209eb0bd415b40ea077a43389e86e)
+- doc: :memo: update bundle size icon url [`98430e4`](https://github.com/reactizard/plain-ui/commit/98430e4de523733084f7c6b43689d774dd6aacac)
+
 #### [v0.1.0](https://github.com/reactizard/plain-ui/compare/v0.0.6...v0.1.0)
 
 > 29 August 2023
