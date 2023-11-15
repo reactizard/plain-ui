@@ -11,6 +11,6 @@ export interface DialogProps {
   title?: string
   positionX?: Position
   positionY?: Position
-  icon: ReactNode
+  icon?: ReactNode
 }
 export type StyleProps = Pick<DialogProps, "size" | "positionX" | "positionY">

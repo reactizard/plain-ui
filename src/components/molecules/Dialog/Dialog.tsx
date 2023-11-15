@@ -20,6 +20,7 @@ export const Dialog: FC<DialogProps> = forwardRef<HTMLDivElement, DialogProps>(
     ref
   ) {
     const styles = getStyles({ positionX, positionY, size })
+
     useEffect(() => {
       const handleEsc = (event: any) => {
         if (event.key === "Escape" && onClose) {
@@ -33,7 +34,6 @@ export const Dialog: FC<DialogProps> = forwardRef<HTMLDivElement, DialogProps>(
       }
     }, [onClose])
 
-    const actionBtns = <div className={styles.actionContainer}>{actions}</div>
     return (
       <FadeMotion shouldFade={open} classes={styles.motionContainer}>
         <div ref={ref} className={styles.container}>
@@ -43,8 +43,7 @@ export const Dialog: FC<DialogProps> = forwardRef<HTMLDivElement, DialogProps>(
           </div>
           <div className={styles.title}>{title}</div>
           <div className={styles.content}>{content}</div>
-
-          {actionBtns}
+          <div className={styles.actionContainer}>{actions}</div>
         </div>
       </FadeMotion>
     )

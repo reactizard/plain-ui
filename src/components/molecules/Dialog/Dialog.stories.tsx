@@ -13,7 +13,6 @@ import Dialog from "./Dialog"
 
 const icons = {
   none: "",
-
   AlertSuccess: (
     <div className="w-8 h-8 p-3 bg-green-200 rounded-[999px] border-4 border-orange-100 justify-center items-center inline-flex">
       <div className="w-4 h-4 justify-center items-center inline-flex">
@@ -26,26 +25,6 @@ const icons = {
   AlertTriangle: <IconAlertTriangleFilled className={text["danger"][500]} />,
   Alert: <IconAlertCircleFilled className={text["warning"][500]} />,
   DiscountCheck: <IconDiscountCheckFilled className={text["success"][500]} />,
-}
-
-const actions = ({ handleClose }: { handleClose: () => {} }) => {
-  return {
-    ButtonGroup: [
-      <Button key="btn-1" color="danger" onClick={handleClose}>
-        Cancel
-      </Button>,
-      <Button key="btn-2" color="primary" onClick={handleClose}>
-        Confirm
-      </Button>,
-    ],
-    ButtonAtRight: [
-      <div className="w-full flex items-end flex-row-reverse">
-        <Button key="btn-1" color="danger" onClick={handleClose}>
-          Cancel
-        </Button>
-      </div>,
-    ],
-  }
 }
 
 const meta: Meta<typeof Dialog> = {
