@@ -2,7 +2,8 @@ import "@testing-library/jest-dom/extend-expect"
 import { render, screen } from "@testing-library/react"
 import React from "react"
 
-import Tag, { TagProps } from "./Tag"
+import Tag from "./Tag"
+import { TagProps } from "./utils/types"
 
 describe("Tag component", () => {
   const testProps: TagProps = {

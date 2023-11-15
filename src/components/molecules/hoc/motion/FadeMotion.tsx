@@ -4,9 +4,14 @@ import React, { FC } from "react"
 interface FadeMotionProps {
   shouldFade: boolean
   children?: React.ReactNode
+  classes?: string
 }
 
-export const FadeMotion: FC<FadeMotionProps> = ({ shouldFade, children }) => {
+export const FadeMotion: FC<FadeMotionProps> = ({
+  shouldFade,
+  children,
+  classes,
+}) => {
   return (
     <CSSMotion
       visible={shouldFade}
@@ -20,7 +25,10 @@ export const FadeMotion: FC<FadeMotionProps> = ({ shouldFade, children }) => {
         <div
           ref={ref}
           style={style}
-          className={classNames(className, "duration-[500ms] transition-all")}
+          className={classNames(
+            className,
+            `duration-[500ms] transition-all ${classes}`
+          )}
         >
           {children}
         </div>
