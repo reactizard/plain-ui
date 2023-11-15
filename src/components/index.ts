@@ -1,4 +1,5 @@
 // Atoms export
+export { default as Avatar } from "./atoms/Avatar"
 export { default as Button } from "./atoms/Button"
 export { default as Checkbox } from "./atoms/Checkbox"
 export { default as Chip } from "./atoms/Chip"
@@ -15,3 +16,5 @@ export { default as Tooltip } from "./atoms/Tooltip"
 // Molecules export
 export { default as Alert } from "./molecules/Alert"
 export { default as Banner } from "./molecules/Banner"
+export { default as Breadcrumb } from "./molecules/Breadcrumb"
+export { default as Dialog } from "./molecules/Dialog"

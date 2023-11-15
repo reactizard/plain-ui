@@ -66,7 +66,7 @@ export const getStyles = ({
 
   const groupCls = classNames([
     "flex",
-    direction == "column" ? "flex-col" : "flex-row",
+    direction == "vertical" ? "flex-col" : "flex-row",
   ])
 
   return { radioCls, containerCls, labelCls, groupCls }

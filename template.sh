@@ -106,6 +106,26 @@ export const primary: Story = {
 export default meta
 EOT
 
+# $component.test.tsx
+test_name="$component.test.tsx"
+test_path="$folder_path/$test_name"
+if [ ! -f "$test_path" ]; then
+  touch "$test_path"
+fi
+echo "Creating $test_path"
+cat <<EOT >"$test_path"
+
+import "@testing-library/jest-dom/extend-expect"
+import { render } from "@testing-library/react"
+import React from "react"
+
+import { $component } from "./$component"
+
+describe("$component component", () => {
+  test("renders properly", () => {})
+})
+EOT
+
 # $component.tsx
 component_name="$component.tsx"
 component_path="$folder_path/$component_name"
