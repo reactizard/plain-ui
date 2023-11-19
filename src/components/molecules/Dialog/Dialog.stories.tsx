@@ -63,7 +63,7 @@ export const primary: Story = {
   render: (args) => {
     const [{ open }, updateArgs] = useArgs()
     const handleClose = () => {
-      updateArgs({ open: !open })
+      updateArgs({ open: false })
     }
     const actions = [
       <Button key="btn-1" color="danger" onClick={handleClose}>
