@@ -12,12 +12,17 @@ const meta: Meta<typeof Avatar> = {
 type Story = StoryObj<typeof Avatar>
 type AvatarGroupStory = StoryObj<typeof AvatarGroup>
 
-export const primary: Story = {
+export const Primary: Story = {
   args: {
     size: "md",
     children: "Adam smith",
     onlineStatus: "online",
     imgURL: "https://avatars.githubusercontent.com/u/16508504?v=4",
+  },
+  argTypes: {
+    children: {
+      description: "imgURL will take precedence over children",
+    },
   },
 }
 
