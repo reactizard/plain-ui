@@ -1,6 +1,20 @@
 import { Meta, StoryObj } from "@storybook/react"
+import {
+  IconArrowDown,
+  IconCaretDownFilled,
+  IconPlus,
+} from "@tabler/icons-react"
 import React from "react"
+import { text } from "../../../theme/mapper"
 import Accordion from "./Accordion"
+
+const icons = {
+  none: "",
+  Plus: <IconPlus className={text["danger"][500]} />,
+  Down: <IconArrowDown className={text["warning"][500]} />,
+  CaretDown: <IconCaretDownFilled className="h-5 text-success-500" />,
+}
+
 const meta: Meta<typeof Accordion> = {
   title: "molecules/Accordion",
   component: Accordion,
@@ -16,6 +30,7 @@ const data = [
     children: (
       <p>There are many variations of passages of Lorem Ipsum available,</p>
     ),
+    disabled: true,
   },
   {
     key: "2",
@@ -50,6 +65,15 @@ export const primary: Story = {
   args: {
     color: "primary",
     data: data,
+  },
+  argTypes: {
+    collapseIcon: {
+      options: Object.keys(icons),
+      mapping: icons,
+      control: {
+        type: "select",
+      },
+    },
   },
 }
 
