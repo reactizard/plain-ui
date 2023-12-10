@@ -1,7 +1,8 @@
 import { IconChevronDown } from "@tabler/icons-react"
 import React, { useState } from "react"
+import { AccordionProps } from "./utils/types"
 
-const Accordion = ({ data }: any) => {
+const Accordion = ({ data, collapseIcon }: AccordionProps) => {
   const [activePanel, setActivePanel] = useState(null)
 
   const togglePanel = (key: any) => {
@@ -11,22 +12,40 @@ const Accordion = ({ data }: any) => {
   return (
     <div className="max-w-md mx-auto">
       {data.map((item: any) => (
-        <div key={item.key} className="mb-2">
+        <div
+          key={item.key}
+          className={`mb-0 ${
+            item.disabled ? "cursor-not-allowed opacity-50 " : "cursor-pointer"
+          } group`}
+        >
           <div
-            className={`bg-gray-200 p-3 cursor-pointer flex items-center justify-between ${
+            className={`bg-gray-200 p-3  flex items-center justify-between ${
               activePanel === item.key ? "rounded-t" : "rounded"
             }`}
-            onClick={() => togglePanel(item.key)}
+            onClick={() => {
+              if (!item.disabled) togglePanel(item.key)
+            }}
           >
             <span className="font-bold">{item.label}</span>
-            <IconChevronDown
-              className={`${
-                activePanel === item.key ? "rotate-180" : ""
-              } transition-transform ease duration-300 transform`}
-            />
+            {collapseIcon ? (
+              React.isValidElement<HTMLElement>(collapseIcon) &&
+              React.cloneElement(collapseIcon, {
+                className:
+                  collapseIcon.props.className +
+                  ` ${
+                    activePanel === item.key ? "rotate-180" : ""
+                  } transition-transform ease-in-out duration-300 transform`,
+              })
+            ) : (
+              <IconChevronDown
+                className={`${
+                  activePanel === item.key ? "rotate-180" : ""
+                } transition-transform ease-in-out duration-300 transform group-hover:translate-y-1`}
+              />
+            )}
           </div>
           <div
-            className={` bg-white p-1 rounded-b overflow-hidden transition-max-height ease-in-out duration-300 ${
+            className={` bg-white p-[1px] rounded-b overflow-hidden transition-max-height ease-in-out duration-500 ${
               activePanel === item.key ? "max-h-screen" : "max-h-0"
             }`}
           >
