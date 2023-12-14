@@ -6,6 +6,7 @@ import {
 } from "@tabler/icons-react"
 import React from "react"
 import { text } from "../../../theme/mapper"
+import { Rating } from "../../atoms/Rating"
 import Accordion from "./Accordion"
 
 const icons = {
@@ -36,10 +37,14 @@ const data = [
     key: "2",
     label: "This is panel header 2",
     children: (
-      <p>
-        It is a long established fact that a reader will be distracted by the
-        readable content of a page when looking at its layout.{" "}
-      </p>
+      <div>
+        <p>
+          It is a long established fact that a reader will be distracted by the
+          readable content of a page when looking at its layout.{" "}
+        </p>
+        <br />
+        Rate this: <Rating color="yellow" size="sm" variant="star" />
+      </div>
     ),
   },
   {
@@ -63,7 +68,6 @@ const data = [
 
 export const primary: Story = {
   args: {
-    color: "primary",
     data: data,
   },
   argTypes: {
