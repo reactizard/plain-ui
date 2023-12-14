@@ -1,53 +1,66 @@
 import { IconChevronDown } from "@tabler/icons-react"
 import React, { useState } from "react"
+import { getStyles } from "./utils/styles"
 import { AccordionProps } from "./utils/types"
 
-const Accordion = ({ data, collapseIcon }: AccordionProps) => {
+const Accordion = ({
+  data,
+  collapseIcon,
+  color = "warm",
+  size = "md",
+}: AccordionProps) => {
   const [activePanel, setActivePanel] = useState(null)
-
+  const styles = getStyles({ color, size })
   const togglePanel = (key: any) => {
     setActivePanel(activePanel === key ? null : key)
   }
 
   return (
-    <div className="max-w-md mx-auto">
+    <div className={styles.container}>
       {data.map((item: any) => (
         <div
           key={item.key}
-          className={`mb-0 ${
-            item.disabled ? "cursor-not-allowed opacity-50 " : "cursor-pointer"
-          } group`}
+          className={`${styles.itemContainer} ${
+            item.disabled ? styles.disabled : styles.enabled
+          }`}
         >
           <div
-            className={`bg-gray-200 p-3  flex items-center justify-between ${
-              activePanel === item.key ? "rounded-t" : "rounded"
+            className={`${styles.itemHeader} ${
+              activePanel === item.key
+                ? styles.activeClasses.itemHeader
+                : styles.inactiveClasses.itemHeader
             }`}
             onClick={() => {
               if (!item.disabled) togglePanel(item.key)
             }}
           >
-            <span className="font-bold">{item.label}</span>
+            <span className={styles.haderLabel}>{item.label}</span>
             {collapseIcon ? (
-              React.isValidElement<HTMLElement>(collapseIcon) &&
-              React.cloneElement(collapseIcon, {
+              (React.cloneElement(collapseIcon, {
                 className:
                   collapseIcon.props.className +
                   ` ${
-                    activePanel === item.key ? "rotate-180" : ""
-                  } transition-transform ease-in-out duration-300 transform`,
-              })
+                    activePanel === item.key
+                      ? styles.activeClasses.toggleIcon
+                      : styles.inactiveClasses.toggleIcon
+                  } ${styles.toggleIcon}`,
+              }) as React.ReactElement<{ className: string }>)
             ) : (
               <IconChevronDown
                 className={`${
-                  activePanel === item.key ? "rotate-180" : ""
-                } transition-transform ease-in-out duration-300 transform group-hover:translate-y-1`}
+                  activePanel === item.key
+                    ? styles.activeClasses.toggleIcon
+                    : styles.inactiveClasses.toggleIcon
+                } ${styles.toggleIcon}`}
               />
             )}
           </div>
           <div
-            className={` bg-white p-[1px] rounded-b overflow-hidden transition-max-height ease-in-out duration-500 ${
-              activePanel === item.key ? "max-h-screen" : "max-h-0"
-            }`}
+            className={`${
+              activePanel === item.key
+                ? styles.activeClasses.contentContainer
+                : styles.inactiveClasses.contentContainer
+            }  ${styles.contentContainer}`}
           >
             {item.children}
           </div>
