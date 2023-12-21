@@ -38,7 +38,7 @@ const data: AccordionDataShape[] = [
   {
     label: "This is panel header 1",
     children: (
-      <p>There are many variations of passages of Lorem Ipsum available,</p>
+      <p>There are many variations of passages of Lorem Ipsum available</p>
     ),
     disabled: true,
   },
