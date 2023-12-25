@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
+#### [v0.3.0](https://github.com/reactizard/plain-ui/compare/v0.2.1...v0.3.0)
+
+> 26 December 2023
+
+- feat: :sparkles: add control to toggle multiple accordion item [`cd1a9af`](https://github.com/reactizard/plain-ui/commit/cd1a9afc73c8131ad2b89b8154a6c139056ca409)
+- feat: :sparkles: add initial Accordion component [`7861d90`](https://github.com/reactizard/plain-ui/commit/7861d903c3abdad6370fc97f7405e311146aa20c)
+- refactor: :recycle: extract accordion styles to dedicated style file [`c4e02e8`](https://github.com/reactizard/plain-ui/commit/c4e02e8cfa4d52259576f01f089bf7c0616bdc4e)
+
 #### [v0.2.1](https://github.com/reactizard/plain-ui/compare/v0.2.0...v0.2.1)
 
 > 15 November 2023
