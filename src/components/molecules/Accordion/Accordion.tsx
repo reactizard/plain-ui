@@ -1,71 +1,79 @@
 import { IconChevronDown } from "@tabler/icons-react"
+import classNames from "classnames"
 import React, { useState } from "react"
 import { getStyles } from "./utils/styles"
-import { AccordionProps } from "./utils/types"
+import { AccordionDataShape, AccordionProps } from "./utils/types"
 
 const Accordion = ({
   data,
   collapseIcon,
   color = "warm",
   size = "md",
+  multiActive = false,
 }: AccordionProps) => {
-  const [activePanel, setActivePanel] = useState(null)
+  const [activePanel, setActivePanel] = useState<String[]>([])
   const styles = getStyles({ color, size })
-  const togglePanel = (key: any) => {
-    setActivePanel(activePanel === key ? null : key)
+
+  const togglePanel = (key: string) => {
+    const addItem = () => {
+      setActivePanel((prev) => (multiActive ? [...prev, key] : [key]))
+    }
+    const removeItem = () => {
+      setActivePanel((prev) => prev.filter((item) => item !== key))
+    }
+    activePanel.includes(key) ? removeItem() : addItem()
   }
 
   return (
     <div className={styles.container}>
-      {data.map((item: any) => (
-        <div
-          key={item.key}
-          className={`${styles.itemContainer} ${
-            item.disabled ? styles.disabled : styles.enabled
-          }`}
-        >
+      {data.map((item: AccordionDataShape, index: number) => {
+        const itemKey = String(index)
+        const showItem = activePanel.includes(itemKey)
+        const activeClass = showItem
+          ? styles.activeClasses
+          : styles.inactiveClasses
+
+        const iconClasses = classNames([
+          collapseIcon?.props.className,
+          !item.disabled ? styles.toggleIcon : "",
+          activeClass.toggleIcon,
+        ])
+
+        return (
           <div
-            className={`${styles.itemHeader} ${
-              activePanel === item.key
-                ? styles.activeClasses.itemHeader
-                : styles.inactiveClasses.itemHeader
+            key={itemKey}
+            className={`${styles.itemContainer} ${
+              item.disabled ? styles.disabled : styles.enabled
             }`}
-            onClick={() => {
-              if (!item.disabled) togglePanel(item.key)
-            }}
           >
-            <span className={styles.haderLabel}>{item.label}</span>
-            {collapseIcon ? (
-              (React.cloneElement(collapseIcon, {
-                className:
-                  collapseIcon.props.className +
-                  ` ${
-                    activePanel === item.key
-                      ? styles.activeClasses.toggleIcon
-                      : styles.inactiveClasses.toggleIcon
-                  } ${styles.toggleIcon}`,
-              }) as React.ReactElement<{ className: string }>)
-            ) : (
-              <IconChevronDown
-                className={`${
-                  activePanel === item.key
-                    ? styles.activeClasses.toggleIcon
-                    : styles.inactiveClasses.toggleIcon
-                } ${styles.toggleIcon}`}
-              />
-            )}
+            <div
+              className={`${styles.itemHeader} ${activeClass.itemHeader}`}
+              onClick={() => {
+                if (!item.disabled) togglePanel(itemKey)
+              }}
+            >
+              <span className={styles.haderLabel}>{item.label}</span>
+              {collapseIcon ? (
+                React.cloneElement(collapseIcon, {
+                  className: iconClasses,
+                })
+              ) : (
+                <IconChevronDown className={iconClasses} />
+              )}
+            </div>
+            {!item.disabled ? (
+              <div
+                className={classNames([
+                  activeClass.contentContainer,
+                  styles.contentContainer,
+                ])}
+              >
+                {item.children}
+              </div>
+            ) : null}
           </div>
-          <div
-            className={`${
-              activePanel === item.key
-                ? styles.activeClasses.contentContainer
-                : styles.inactiveClasses.contentContainer
-            }  ${styles.contentContainer}`}
-          >
-            {item.children}
-          </div>
-        </div>
-      ))}
+        )
+      })}
     </div>
   )
 }
