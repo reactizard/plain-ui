@@ -51,7 +51,7 @@ const Accordion = ({
               onClick={() => {
                 if (!item.disabled) togglePanel(itemKey)
               }}
-              data-testId="accordion-item-header"
+              data-testid="accordion-item-header"
             >
               <span className={styles.haderLabel}>{item.label}</span>
               {collapseIcon ? (
@@ -68,6 +68,7 @@ const Accordion = ({
                   activeClass.contentContainer,
                   styles.contentContainer,
                 ])}
+                data-testid="accordion-item-content"
               >
                 {item.children}
               </div>
