@@ -25,7 +25,7 @@ const Accordion = ({
   }
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} data-testId="accordion-container">
       {data.map((item: AccordionDataShape, index: number) => {
         const itemKey = String(index)
         const showItem = activePanel.includes(itemKey)
@@ -51,6 +51,7 @@ const Accordion = ({
               onClick={() => {
                 if (!item.disabled) togglePanel(itemKey)
               }}
+              data-testId="accordion-item-header"
             >
               <span className={styles.haderLabel}>{item.label}</span>
               {collapseIcon ? (
