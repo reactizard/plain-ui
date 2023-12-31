@@ -7,7 +7,7 @@ export interface AccordionDataShape {
   disabled?: boolean
 }
 export interface AccordionProps {
-  data: any
+  data: AccordionDataShape[]
   color?: Colors
   collapseIcon?: JSX.Element
   size?: Size
