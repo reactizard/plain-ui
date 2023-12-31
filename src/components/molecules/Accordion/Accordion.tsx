@@ -11,7 +11,7 @@ const Accordion = ({
   size = "md",
   multiActive = false,
 }: AccordionProps) => {
-  const [activePanel, setActivePanel] = useState<String[]>([])
+  const [activePanel, setActivePanel] = useState<string[]>([])
   const styles = getStyles({ color, size })
 
   const togglePanel = (key: string) => {
