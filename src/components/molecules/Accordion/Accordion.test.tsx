@@ -3,7 +3,7 @@ import { fireEvent, render } from "@testing-library/react"
 import React from "react"
 
 import { IconChevronDown } from "@tabler/icons-react"
-import { Accordion, AccordionDataShape } from "."
+import Accordion, { AccordionDataShape } from "."
 
 describe("Accordion component", () => {
   it("should render the accordion container with the correct styles and classes", () => {
