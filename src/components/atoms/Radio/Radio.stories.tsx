@@ -34,7 +34,7 @@ const GroupTemplate: Story = {
   },
 }
 
-export const GroupRadio = {
+export const GroupRadio: object = {
   ...GroupTemplate,
   args: {
     items: [

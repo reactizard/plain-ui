@@ -49,7 +49,7 @@ const AvatarItemProps: AvatarProps[] = [
   { children: "Adam Smith" },
   { children: "Robert Bruce" },
 ]
-export const GroupAvatar = {
+export const GroupAvatar: object = {
   ...GroupTemplate,
   args: { items: AvatarItemProps },
 }

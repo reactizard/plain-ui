@@ -36,7 +36,7 @@ const GroupTemplate: GroupStory = {
   },
 }
 
-export const GroupBreadcrumb = {
+export const GroupBreadcrumb: object = {
   ...GroupTemplate,
   args: {
     color: "aloha",
@@ -72,7 +72,7 @@ const CustomGroup: GroupStory = {
   },
 }
 
-export const CustomGroupTemplate = {
+export const CustomGroupTemplate: object = {
   ...CustomGroup,
   args: {
     separator: <IconArrowForward className="text-success-300" />,
