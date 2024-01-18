@@ -61,7 +61,7 @@ export const Card: FC<CardProps> = forwardRef<HTMLDivElement, CardProps>(
     )
 
     return (
-      <div ref={ref} className={styles.container} data-testId="card">
+      <div ref={ref} className={styles.container} data-testid="card">
         {head}
         {body}
       </div>

@@ -25,7 +25,7 @@ const Accordion = ({
   }
 
   return (
-    <div className={styles.container} data-testId="accordion-container">
+    <div className={styles.container} data-testid="accordion-container">
       {data.map((item: AccordionDataShape, index: number) => {
         const itemKey = String(index)
         const showItem = activePanel.includes(itemKey)
