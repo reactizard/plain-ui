@@ -6,10 +6,12 @@ export interface SwitchProps {
   label?: string
   subtitle?: string
   labelPosition?: Extract<Position, "left" | "right">
-  onChange?: React.ChangeEventHandler
+  onChange?: any
+  isOn?: boolean
+  disabled?: boolean
 }
 
 export type StyleProps = Pick<
   SwitchProps,
-  "color" | "size" | "labelPosition"
+  "color" | "size" | "labelPosition" | "disabled"
 > & { checked?: boolean }

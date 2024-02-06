@@ -1,4 +1,11 @@
-import React, { FC, forwardRef, useState } from "react"
+import React, {
+  ChangeEvent,
+  FC,
+  SyntheticEvent,
+  forwardRef,
+  useEffect,
+  useState,
+} from "react"
 import { getStyles } from "./utils/styles"
 import "./utils/styles.css"
 import { SwitchProps } from "./utils/types"
@@ -12,25 +19,42 @@ const Switch: FC<SwitchProps> = forwardRef<HTMLInputElement, SwitchProps>(
       subtitle,
       labelPosition = "left",
       onChange,
+      isOn = false,
     },
     ref
   ) {
-    const [checked, setChecked] = useState(false)
+    const [checked, setChecked] = useState(isOn)
+
     const styles = getStyles({ color, size, labelPosition, checked })
     const toggleCheck = () => {
       setChecked((prev) => !prev)
     }
+
+    const handleOnChange = () => {
+      if (onChange) {
+        onChange(!checked)
+      }
+    }
+
+    function generateUniqueId(prefix = "") {
+      const randomNumber = Math.floor(Math.random() * 1000000)
+      const id = `${prefix}-${randomNumber}`
+      return id
+    }
+    const id = generateUniqueId("switch")
+
     return (
       <div className={styles.containerCls}>
         <input
           type="checkbox"
-          id="switch"
+          id={id}
           className={styles.inputCls}
           ref={ref}
-          onChange={onChange}
+          onChange={handleOnChange}
           onClick={toggleCheck}
+          checked={checked}
         />
-        <label htmlFor="switch" className={styles.labelCls} />
+        <label htmlFor={id} className={styles.labelCls} />
 
         <div className={styles.textContainerCls}>
           <p className={styles.textCls}>{label}</p>

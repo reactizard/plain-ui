@@ -13,31 +13,36 @@ export interface ChipProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   disabled?: boolean
 }
 
-export const Chip: React.FC<ChipProps> = React.forwardRef<
-  HTMLButtonElement,
-  ChipProps
->(function Chip(
-  { text, variant = "filled", color = "primary", disabled, ...rest }: ChipProps,
-  ref
-) {
-  const [opened, { toggle }] = useDisclosure(true)
-  const classes = getStyles({
-    variant: variant,
-    color: color,
-    disabled: disabled,
-  })
+export const Chip: any = React.forwardRef<HTMLButtonElement, ChipProps>(
+  function Chip(
+    {
+      text,
+      variant = "filled",
+      color = "primary",
+      disabled,
+      ...rest
+    }: ChipProps,
+    ref
+  ) {
+    const [opened, { toggle }] = useDisclosure(true)
+    const classes = getStyles({
+      variant: variant,
+      color: color,
+      disabled: disabled,
+    })
 
-  const { fill } = getClasses({ color })
+    const { fill } = getClasses({ color })
 
-  return opened ? (
-    <button className={classes} disabled={disabled} ref={ref} {...rest}>
-      {text}
-      <Times
-        customfill={{ color: classNames(fill), variant }}
-        onClick={() => (!disabled ? toggle() : null)}
-      />
-    </button>
-  ) : null
-})
+    return opened ? (
+      <button className={classes} disabled={disabled} ref={ref} {...rest}>
+        {text}
+        <Times
+          customfill={{ color: classNames(fill), variant }}
+          onClick={() => (!disabled ? toggle() : null)}
+        />
+      </button>
+    ) : null
+  }
+)
 
 export default Chip
