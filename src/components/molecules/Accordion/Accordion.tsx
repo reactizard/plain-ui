@@ -4,13 +4,14 @@ import React, { useState } from "react"
 import { getStyles } from "./utils/styles"
 import { AccordionDataShape, AccordionProps } from "./utils/types"
 
-const Accordion = ({
+const Accordion = function Accordion({
   data,
-  collapseIcon,
+  collapseIcon, //= ({ className }) => <IconChevronDown className={className} />,
   color = "warm",
   size = "md",
   multiActive = false,
-}: AccordionProps) => {
+  controlByCollapseIndicator = false,
+}: AccordionProps) {
   const [activePanel, setActivePanel] = useState<string[]>([])
   const styles = getStyles({ color, size })
 
@@ -34,7 +35,7 @@ const Accordion = ({
           : styles.inactiveClasses
 
         const iconClasses = classNames([
-          collapseIcon?.props.className,
+          //collapseIcon?.props.className,
           !item.disabled ? styles.toggleIcon : "",
           activeClass.toggleIcon,
         ])
@@ -48,18 +49,32 @@ const Accordion = ({
           >
             <div
               className={`${styles.itemHeader} ${activeClass.itemHeader}`}
-              onClick={() => {
-                if (!item.disabled) togglePanel(itemKey)
-              }}
               data-testid="accordion-item-header"
+              onClick={() => {
+                if (!item.disabled && !controlByCollapseIndicator) {
+                  togglePanel(itemKey)
+                }
+              }}
             >
               <span className={styles.haderLabel}>{item.label}</span>
+
               {collapseIcon ? (
-                React.cloneElement(collapseIcon, {
+                collapseIcon({
                   className: iconClasses,
+                  isOpen: showItem,
+                  onChange: () => {
+                    if (!item.disabled && controlByCollapseIndicator)
+                      togglePanel(itemKey)
+                  },
                 })
               ) : (
-                <IconChevronDown className={iconClasses} />
+                <IconChevronDown
+                  className={iconClasses}
+                  onClick={() => {
+                    if (!item.disabled && controlByCollapseIndicator)
+                      togglePanel(itemKey)
+                  }}
+                />
               )}
             </div>
             {!item.disabled ? (

@@ -6,11 +6,18 @@ export interface AccordionDataShape {
   children?: ReactNode
   disabled?: boolean
 }
+
+export interface CollapseIconProps {
+  className?: string
+  isOpen?: boolean
+  onChange?: any
+}
 export interface AccordionProps {
   data: AccordionDataShape[]
   color?: Colors
-  collapseIcon?: JSX.Element
+  collapseIcon?: any //(props: CollapseIconProps) => React.ReactElement<any>
   size?: Size
   multiActive?: boolean
+  controlByCollapseIndicator?: boolean
 }
 export type StyleProps = Pick<AccordionProps, "color" | "size">
