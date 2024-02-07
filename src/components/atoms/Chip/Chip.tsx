@@ -1,5 +1,5 @@
 import classNames from "classnames"
-import React, { ButtonHTMLAttributes } from "react"
+import React, { ButtonHTMLAttributes, FC } from "react"
 import useDisclosure from "../../../hooks/useDisclosure"
 import Times from "../../../icons/Times"
 import { ButtonVariant, Colors } from "../../../theme/constants"
@@ -33,15 +33,19 @@ export const Chip: any = React.forwardRef<HTMLButtonElement, ChipProps>(
 
     const { fill } = getClasses({ color })
 
-    return opened ? (
-      <button className={classes} disabled={disabled} ref={ref} {...rest}>
-        {text}
-        <Times
-          customfill={{ color: classNames(fill), variant }}
-          onClick={() => (!disabled ? toggle() : null)}
-        />
-      </button>
-    ) : null
+    return (
+      <>
+        {opened ? (
+          <button className={classes} disabled={disabled} ref={ref} {...rest}>
+            {text}
+            <Times
+              customfill={{ color: classNames(fill), variant }}
+              onClick={() => (!disabled ? toggle() : null)}
+            />
+          </button>
+        ) : null}
+      </>
+    )
   }
 )
 
