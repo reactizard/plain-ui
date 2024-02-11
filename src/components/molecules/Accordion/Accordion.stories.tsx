@@ -7,7 +7,7 @@ import {
 } from "@tabler/icons-react"
 import React from "react"
 import { text } from "../../../theme/mapper"
-import { Rating } from "../../atoms/Rating"
+import { Rating } from "../../"
 import Accordion from "./Accordion"
 import { AccordionDataShape } from "./utils/types"
 

@@ -12,6 +12,7 @@ export { default as Radio } from "./atoms/Radio"
 export { default as Switch } from "./atoms/Switch"
 export { default as Tag } from "./atoms/Tag"
 export { default as Tooltip } from "./atoms/Tooltip"
+export { default as Rating } from "./atoms/Rating"
 
 // Molecules export
 export { default as Accordion } from "./molecules/Accordion"
