@@ -1,5 +1,5 @@
 import classNames from "classnames"
-import React, { ButtonHTMLAttributes } from "react"
+import React, { ButtonHTMLAttributes, Ref, forwardRef } from "react"
 import useDisclosure from "../../../hooks/useDisclosure"
 import Times from "../../../icons/Times"
 import { ButtonVariant, Colors } from "../../../theme/constants"
@@ -13,12 +13,9 @@ export interface ChipProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   disabled?: boolean
 }
 
-export const Chip: React.FC<ChipProps> = React.forwardRef<
-  HTMLButtonElement,
-  ChipProps
->(function Chip(
+export const Chip = forwardRef(function Chip(
   { text, variant = "filled", color = "primary", disabled, ...rest }: ChipProps,
-  ref
+  ref: Ref<HTMLButtonElement>
 ) {
   const [opened, { toggle }] = useDisclosure(true)
   const classes = getStyles({
@@ -37,7 +34,9 @@ export const Chip: React.FC<ChipProps> = React.forwardRef<
         onClick={() => (!disabled ? toggle() : null)}
       />
     </button>
-  ) : null
+  ) : (
+    <></>
+  )
 })
 
 export default Chip

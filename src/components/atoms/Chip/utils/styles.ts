@@ -30,6 +30,7 @@ export const getStyles = ({
     "font-inter",
     "text-smRegular",
     disabled ? "disabled:opacity-50 disabled:cursor-not-allowed" : "",
+    "w-fit",
   ]
 
   const styles = classNames(variantColor[variant], ownClasses)
