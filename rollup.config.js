@@ -11,17 +11,17 @@ import typescript from "rollup-plugin-typescript2"
 import { visualizer } from "rollup-plugin-visualizer"
 import packageJson from "./package.json"
 
-const isProduction = process.env.BUILD === 'production'
+const isProduction = process.env.BUILD === "production"
 
 const config = [
   {
     input: "./src/index.ts",
     output: [
-      {
-        file: packageJson.main,
-        format: "cjs",
-        sourcemap: !isProduction,
-      },
+      // {
+      //   file: packageJson.main,
+      //   format: "cjs",
+      //   sourcemap: !isProduction,
+      // },
       {
         file: packageJson.module,
         format: "esm",
@@ -32,17 +32,13 @@ const config = [
       external(),
       typescript({ tsconfig: "./tsconfig.json" }),
       resolve({
-        extensions: [".js", ".jsx", ".ts", ".tsx"]
+        extensions: [".js", ".jsx", ".ts", ".tsx"],
       }),
       commonjs(),
       postcss(),
       babel({
         babelHelpers: "bundled",
-        extensions: [
-          ...DEFAULT_EXTENSIONS,
-          ".ts",
-          ".tsx"
-        ]
+        extensions: [...DEFAULT_EXTENSIONS, ".ts", ".tsx"],
       }),
       terser(),
       visualizer({ gzipSize: true }),
@@ -61,7 +57,7 @@ if (process.argv.includes("--watch")) {
     ...config,
   })
 
-  watcher.on("event", event => {
+  watcher.on("event", (event) => {
     if (event.code === "START") {
       console.log("Rollup is watching...")
     } else if (event.code === "ERROR") {
