@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
+#### [v0.4.0](https://github.com/reactizard/plain-ui/compare/v0.3.0...v0.4.0)
+
+> 28 May 2024
+
+- pagination component add [`ac76a5e`](https://github.com/reactizard/plain-ui/commit/ac76a5e9b23128c19c41bb994613eb0e9bd0cd7a)
+- refactor: :recycle: fix linting, attach refs to components [`c2545e6`](https://github.com/reactizard/plain-ui/commit/c2545e61f112ceb04fb7de4e76aa65620db3a66c)
+- fix: :bug: fix rating import export issue [`0fbb7de`](https://github.com/reactizard/plain-ui/commit/0fbb7de91ea592e61bfb6f53f60a95dc482df488)
+
 #### [v0.3.0](https://github.com/reactizard/plain-ui/compare/v0.2.1...v0.3.0)
 
 > 26 December 2023
