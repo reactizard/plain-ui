@@ -12,6 +12,7 @@ export const Button = forwardRef(function Button(
     disabled,
     round,
     variant = "filled",
+    styles: customStyles,
     ...rest
   }: ButtonProps,
   ref: Ref<HTMLButtonElement>
@@ -19,7 +20,13 @@ export const Button = forwardRef(function Button(
   const styles = getStyles({ children, color, round, size, variant, disabled })
 
   return (
-    <button className={styles} disabled={disabled} {...rest} ref={ref}>
+    <button
+      className={styles}
+      style={customStyles}
+      disabled={disabled}
+      {...rest}
+      ref={ref}
+    >
       {leftIcon ? leftIcon : null}
       {children}
       {rightIcon ? rightIcon : null}

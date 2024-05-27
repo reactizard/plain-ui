@@ -36,7 +36,7 @@ const BreadcrumbGroup: FC<BreadcrumbGroupProps> = forwardRef<
               })
 
               const expander = (
-                <li className={styles.groupList} key={"hello"}>
+                <li className={styles.groupList} key={"bread"}>
                   <Breadcrumb
                     className={styles.groupItem}
                     onClick={() => setAllVisible(true)}
