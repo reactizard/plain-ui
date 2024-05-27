@@ -61,7 +61,7 @@ export const getStyles = ({
     filled: [
       bg[color][500],
       "text-white",
-      color ? border[color][300] : "",
+      border[color][300],
       "border-2",
       "brightness-125",
     ],

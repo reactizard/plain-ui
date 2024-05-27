@@ -12,14 +12,16 @@ import { usePagination } from "./utils/usePagination"
 import { getStyles } from "./utils/styles"
 import { twMerge } from "tailwind-merge"
 
+const DEFAULT_PER_PAGE = 10
 export const Pagination = ({
   currentPage = 1,
   onPageChange,
   totalCount,
-  perPage = 10,
+  perPage = DEFAULT_PER_PAGE,
   color = "primary",
   variant = "filled",
 }: PaginationProps) => {
+  perPage = perPage < 1 ? DEFAULT_PER_PAGE : perPage
   const lastPage = Math.ceil(totalCount / perPage)
 
   const pages = usePagination({
