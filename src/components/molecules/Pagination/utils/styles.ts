@@ -65,7 +65,13 @@ export const getStyles = ({
       "border-2",
       "brightness-125",
     ],
-    outlined: [bg[color][500], "text-white", hover[color][500]],
+    outlined: [
+      bg[color][500],
+      "text-white",
+      "border-2",
+      border[color][300],
+      hover[color][500],
+    ],
     plain: [
       bg[color][200],
       text["gray"][700],
