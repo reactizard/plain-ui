@@ -12,7 +12,7 @@ import { usePagination } from "./utils/usePagination"
 import { getStyles } from "./utils/styles"
 import { twMerge } from "tailwind-merge"
 
-const Pagination = ({
+export const Pagination = ({
   currentPage = 1,
   onPageChange,
   totalCount,
@@ -64,7 +64,7 @@ const Pagination = ({
             currentPage < lastPage ? onItemClick(currentPage + 1) : null
           }}
         >
-          <IconChevronRight size={15} />
+          <IconChevronRight size={15} data-testid="pg-right" />
         </ul>
       </li>
     </nav>

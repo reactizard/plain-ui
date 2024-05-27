@@ -22,6 +22,7 @@ export { default as Breadcrumb } from "./molecules/Breadcrumb"
 export { default as Card } from "./molecules/Card"
 export { default as Dialog } from "./molecules/Dialog"
 export { default as Toast } from "./molecules/Toast"
+export { default as Pagination } from "./molecules/Pagination"
 
 // Types export
 export type { AccordionDataShape } from "./molecules/Accordion"
