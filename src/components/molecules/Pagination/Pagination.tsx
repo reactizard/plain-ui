@@ -10,8 +10,7 @@ import React from "react"
 import { usePagination } from "./utils/usePagination"
 
 import { getStyles } from "./utils/styles"
-import classNames from "classnames"
-import { bg } from "../../../theme/mapper"
+import { twMerge } from "tailwind-merge"
 
 const Pagination = ({
   currentPage = 1,
@@ -51,7 +50,7 @@ const Pagination = ({
             <ul
               key={i}
               onClick={() => onItemClick(item)}
-              className={classNames(
+              className={twMerge(
                 styles.pages,
                 item == currentPage ? styles.active : ""
               )}
