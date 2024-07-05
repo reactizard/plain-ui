@@ -1,6 +1,6 @@
-import classNames from "classnames"
 import CSSMotion from "rc-motion"
 import React, { FC } from "react"
+import { twMerge } from "tailwind-merge"
 interface FadeMotionProps {
   shouldFade: boolean
   children?: React.ReactNode
@@ -25,9 +25,9 @@ export const FadeMotion: FC<FadeMotionProps> = ({
         <div
           ref={ref}
           style={style}
-          className={classNames(
+          className={twMerge(
             className,
-            `duration-[500ms] transition-all ${classes}`
+            `duration-500 transition-all ${classes}`
           )}
         >
           {children}
