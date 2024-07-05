@@ -4,7 +4,10 @@ import { border, text } from "../../../../theme/mapper"
 import { DividerProps, StyleProps } from "./types"
 
 export const getStyles = ({ labelPosition, color, weight }: StyleProps) => {
-  const labelPositionMapper: Record<DividerProps["labelPosition"], string> = {
+  const labelPositionMapper: Record<
+    NonNullable<DividerProps["labelPosition"]>,
+    string
+  > = {
     center: "justify-center",
     left: "justify-start",
     right: "justify-end",
@@ -16,7 +19,7 @@ export const getStyles = ({ labelPosition, color, weight }: StyleProps) => {
     sm: "border-b",
   }
 
-  const parentContainerCls = classNames(["relative"])
+  const parentContainerCls = classNames(["relative", "w-full"])
 
   const lineContainerCls = classNames([
     "absolute",
@@ -35,7 +38,7 @@ export const getStyles = ({ labelPosition, color, weight }: StyleProps) => {
   const itemContainerCls = classNames([
     "relative",
     "flex",
-    labelPositionMapper[labelPosition],
+    labelPosition ? labelPositionMapper[labelPosition] : "",
   ])
 
   const itemCls = classNames(["bg-white", "px-4", text["gray"][500]])

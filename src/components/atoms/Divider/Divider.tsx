@@ -6,7 +6,7 @@ import { DividerProps } from "./utils/types"
 
 export const Divider = forwardRef<HTMLDivElement, DividerProps>(
   function Divider(
-    { labelPosition = "center", label, color = "gray", weight = "sm" },
+    { labelPosition = "center", label = "", color = "gray", weight = "sm" },
     ref
   ) {
     const {
@@ -22,9 +22,11 @@ export const Divider = forwardRef<HTMLDivElement, DividerProps>(
         <div className={lineContainerCls}>
           <div className={lineCls} ref={ref}></div>
         </div>
-        <div className={itemContainerCls}>
-          <span className={itemCls}>{label}</span>
-        </div>
+        {label ? (
+          <div className={itemContainerCls}>
+            <span className={itemCls}>{label}</span>
+          </div>
+        ) : null}
       </div>
     )
   }
