@@ -1,6 +1,6 @@
 import classNames from "classnames"
 import { Size } from "../../../../theme/constants"
-import { bg, border, hover, text } from "../../../../theme/mapper"
+import { bg, border, hover, ring, text } from "../../../../theme/mapper"
 import { StyleProps } from "./types"
 
 export const getStyles = ({
@@ -30,7 +30,7 @@ export const getStyles = ({
     "inline-flex",
     "flex-shrink-0",
     "gap-[4px]",
-    "max-w-fit",
+    "justify-between",
     "items-center",
     "font-inter",
     "text-mdRegular",
@@ -39,6 +39,8 @@ export const getStyles = ({
     disabled ? "disabled:opacity-50 disabled:cursor-not-allowed" : "",
     round ? "rounded-[200px]" : "rounded-[4px]",
     variant ? variantColor[variant] : "",
+    "focus:ring-2 focus:outline-none",
+    ring[color][300],
   ]
 
   const styles = classNames(ownClasses)
