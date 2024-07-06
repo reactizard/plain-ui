@@ -1,11 +1,11 @@
-import React, { FC, forwardRef, useRef, useState } from "react"
+import React, { FC, forwardRef, RefObject, useRef, useState } from "react"
 import { DropdownProps } from "./utils/types"
 import { getStyles } from "./utils/styles"
 
 import FadeMotion from "../hoc/motion/FadeMotion"
 import { useAccessibility } from "./utils/useAccessibility"
 import { twMerge } from "tailwind-merge"
-import useSafePosition from "./utils/useSafePosition"
+import { useDropdownSafeArea } from "./utils/useSafePosition"
 
 export const Dropdown: FC<DropdownProps> = forwardRef<
   HTMLDivElement,
@@ -28,14 +28,21 @@ export const Dropdown: FC<DropdownProps> = forwardRef<
     openerRef,
   })
 
+  const { safeArea } = useDropdownSafeArea({
+    dropdownRef: containerRef as React.MutableRefObject<HTMLDivElement>,
+    triggerRef: openerRef,
+    isOpen,
+  })
+
   return (
-    <div className={styles.container} ref={containerRef}>
+    <div className={styles.container}>
       {opener && opener({ isOpen, setIsOpen, ref: openerRef })}
 
       <FadeMotion shouldFade={isOpen}>
         <ul
+          ref={containerRef as RefObject<HTMLUListElement>}
           className={styles.itemsContainer}
-          style={{ width: width }}
+          style={{ width: width, ...safeArea }}
           role="menu"
           aria-haspopup="true"
           tabIndex={-1}
