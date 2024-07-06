@@ -8,7 +8,8 @@ export interface AvatarProps extends HTMLAttributes<HTMLDivElement> {
   color?: Colors
   children?: React.ReactNode
 }
-export interface AvatarComponent extends React.FC<AvatarProps> {
+export interface AvatarComponent
+  extends React.FC<AvatarProps & React.RefAttributes<HTMLDivElement>> {
   Group?: any
 }
 
