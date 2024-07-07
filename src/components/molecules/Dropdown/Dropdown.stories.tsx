@@ -56,6 +56,7 @@ const items: MenuItemShape[] = [
     extraElement: <IconLogout size={15} />,
   },
 ]
+
 const meta: Meta<typeof Dropdown> = {
   title: "molecules/Dropdown",
   component: Dropdown,
@@ -63,10 +64,13 @@ const meta: Meta<typeof Dropdown> = {
   argTypes: {
     onItemClick: { type: "function" },
     width: { description: "number of pixel" },
+    opener: {
+      description: "must attach ref to the trigger element",
+    },
   },
   decorators: [
     (Story) => (
-      <div className="flex items-center justify-center h-[300px] flex-col">
+      <div className="flex items-center h-[300px] flex-col ">
         <Story />
       </div>
     ),
@@ -75,7 +79,11 @@ const meta: Meta<typeof Dropdown> = {
 
 type Story = StoryObj<typeof Dropdown>
 
-const opnr: DropdownProps["opener"] = function opener({ isOpen, setIsOpen }) {
+const opnr: DropdownProps["opener"] = function opener({
+  isOpen,
+  setIsOpen,
+  ref,
+}) {
   return (
     <Avatar
       imgURL=""
@@ -83,6 +91,7 @@ const opnr: DropdownProps["opener"] = function opener({ isOpen, setIsOpen }) {
       size="md"
       onClick={() => setIsOpen(!isOpen)}
       style={{ cursor: "pointer" }}
+      ref={ref}
     >
       Adam Smith
     </Avatar>
@@ -129,7 +138,11 @@ export const ButtonOpener = () => {
     console.log((e.target as HTMLLIElement).innerText)
   }
 
-  return <Dropdown items={items} opener={openerElement} onItemClick={onClick} />
+  return (
+    <div className="w-full">
+      <Dropdown items={items} opener={openerElement} onItemClick={onClick} />
+    </div>
+  )
 }
 
 export const HoverOpener = () => {
