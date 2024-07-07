@@ -12,17 +12,24 @@ export const useDropdownSafeArea = ({
   isOpen,
 }: Props) => {
   const [safeArea, setSafeArea] = useState<object | null>(null)
+  const threshold = 5
 
   const calculatePosition = () => {
     if (!triggerRef.current || !dropdownRef.current) return
     const triggerRect = triggerRef.current.getBoundingClientRect()
     const dropdownRect = dropdownRef.current.getBoundingClientRect()
+    const viewportHeight = window.innerHeight
 
     const spaceAbove = triggerRect.top
+    const spaceBelow =
+      viewportHeight - triggerRect.bottom + triggerRect.height - threshold
     const spaceLeft = triggerRect.left
-    const threshold = 5
 
-    if (spaceAbove >= dropdownRect.height) {
+    const hasMoreSpaceAbove = spaceAbove > spaceBelow
+    const hasLowSpaceVertically =
+      dropdownRect.height > spaceAbove && dropdownRect.height > spaceBelow
+
+    if (hasLowSpaceVertically && hasMoreSpaceAbove) {
       setSafeArea({ bottom: threshold + triggerRect.height })
     } else {
       setSafeArea({ top: threshold + triggerRect.height })
