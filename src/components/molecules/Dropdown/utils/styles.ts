@@ -1,4 +1,5 @@
 import classNames from "classnames"
+import { hover } from "../../../../theme/mapper"
 
 export const getStyles = () => {
   const container = classNames(["relative inline-block"])
@@ -8,5 +9,7 @@ export const getStyles = () => {
   const item = classNames([
     "cursor-pointer items-center rounded-md flex gap-1 p-1 font-inter text-smRegular h-auto",
   ])
-  return { container, itemsContainer, item }
+  const selectedItem = ["focus:outline-none", "focus:bg-gray-200"]
+  const itemHover = [hover["gray"][200]]
+  return { container, itemsContainer, item, selectedItem, itemHover }
 }

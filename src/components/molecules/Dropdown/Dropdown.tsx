@@ -50,11 +50,12 @@ export const Dropdown: FC<DropdownProps> = forwardRef<
           {items.map((item, index) => (
             <li
               key={item.key}
+              role="menuitem"
+              tabIndex={0}
               className={twMerge(
                 styles.item,
-                index == selectedItem &&
-                  "focus:outline-none  focus:bg-gray-200",
-                item.label && "hover:bg-gray-200"
+                index == selectedItem && styles.selectedItem,
+                item.label && styles.itemHover
               )}
               onClick={(e) => {
                 if (item.label) {
@@ -62,8 +63,6 @@ export const Dropdown: FC<DropdownProps> = forwardRef<
                   if (onItemClick) onItemClick(e)
                 }
               }}
-              role="menuitem"
-              tabIndex={0}
             >
               {item.extraElement}
               {item.label}
