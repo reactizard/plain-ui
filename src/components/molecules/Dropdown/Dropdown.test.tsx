@@ -90,7 +90,7 @@ describe("useDropdownSafeArea", () => {
     act(() => {
       window.dispatchEvent(new Event("resize"))
     })
-
     expect(result.current.safeArea).toEqual({ top: 60 - threshold, left: 0 })
   })
+
 })
