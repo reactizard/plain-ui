@@ -13,6 +13,7 @@ export { default as Switch } from "./atoms/Switch"
 export { default as Tag } from "./atoms/Tag"
 export { default as Tooltip } from "./atoms/Tooltip"
 export { default as Rating } from "./atoms/Rating"
+export { default as Input } from "./atoms/Input"
 
 // Molecules export
 export { default as Accordion } from "./molecules/Accordion"
@@ -25,4 +26,4 @@ export { default as Toast } from "./molecules/Toast"
 export { default as Pagination } from "./molecules/Pagination"
 
 // Types export
-export type { AccordionDataShape } from "./molecules/Accordion"
+export type { AccordionDataShape } from "./molecules/Accordion/utils/types"
