@@ -4,6 +4,7 @@ export interface InputProps {
   color?: Colors
   placeholder?: string
   label?: string
+  value?: string | number
   type?: "text" | "number" | "email" | "password"
   leftIcon?: React.ReactElement
   rightIcon?: React.ReactElement
