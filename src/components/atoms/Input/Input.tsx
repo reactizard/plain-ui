@@ -1,29 +1,28 @@
-import React, { FC, forwardRef, useEffect, useRef } from "react"
+import React, { forwardRef } from "react"
 import { InputProps } from "./utils/types"
 import { getStyles } from "./utils/styles"
-import { IconAlertCircle, IconMessage } from "@tabler/icons-react"
 import "./utils/styles.css"
-export const Input = forwardRef(function Input({
-  label,
-  placeholder,
-  type = "text",
-  ...props
-}: InputProps) {
+export const Input = forwardRef<HTMLDivElement, InputProps>(function Input(
+  { label, placeholder, leftIcon, rightIcon, value, type = "text", ...props },
+  ref
+) {
   const styles = getStyles({})
+
   return (
-    <div className="relative w-fit">
+    <div className="relative w-fit" ref={ref}>
       <div className="absolute inset-y-0 flex items-center pl-2 pointer-events-none text-gray-500">
-        <IconMessage />
+        {leftIcon}
       </div>
       <input
         type={type}
         id={label}
+        value={value}
         placeholder={placeholder}
         className={styles.input}
         {...props}
       />
       <div className="absolute inset-y-0 right-0 pr-2 flex items-center pointer-events-none text-gray-500">
-        <IconAlertCircle />
+        {rightIcon}
       </div>
     </div>
   )
