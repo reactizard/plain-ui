@@ -6,7 +6,11 @@ export interface InputProps {
   label?: string
   value?: string | number
   type?: "text" | "number" | "email" | "password"
+  disabled?: boolean
   leftIcon?: React.ReactElement
   rightIcon?: React.ReactElement
 }
-export type StyleProps = Pick<InputProps, "color">
+export type StyleProps = Pick<
+  InputProps,
+  "color" | "disabled" | "leftIcon" | "rightIcon"
+>
