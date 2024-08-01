@@ -3,29 +3,35 @@ import { InputProps } from "./utils/types"
 import { getStyles } from "./utils/styles"
 import "./utils/styles.css"
 export const Input = forwardRef<HTMLDivElement, InputProps>(function Input(
-  { label, placeholder, leftIcon, rightIcon, value, type = "text", ...props },
+  {
+    color,
+    label,
+    placeholder,
+    leftIcon,
+    rightIcon,
+    value,
+    type = "text",
+    disabled = false,
+    ...props
+  },
   ref
 ) {
-  const styles = getStyles({})
+  const styles = getStyles({ color, disabled, leftIcon, rightIcon })
 
   return (
-    <div className="relative w-fit" ref={ref}>
-      <div className="absolute inset-y-0 flex items-center pl-2 pointer-events-none text-gray-500">
-        {leftIcon}
-      </div>
+    <div className={styles.container} ref={ref}>
+      {leftIcon ? <div className={styles.lIcon}>{leftIcon}</div> : null}
       <input
         type={type}
         id={label}
+        disabled={disabled}
         value={value}
         placeholder={placeholder}
         className={styles.input}
         {...props}
       />
-      <div className="absolute inset-y-0 right-0 pr-2 flex items-center pointer-events-none text-gray-500">
-        {rightIcon}
-      </div>
+      {rightIcon && <div className={styles.rIcon}>{rightIcon}</div>}
     </div>
   )
 })
 export default Input
-//shadow appearance-none border rounded  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline
