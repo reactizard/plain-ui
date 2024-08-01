@@ -14,8 +14,22 @@ export const primary: Story = {
   args: {
     color: "primary",
     placeholder: "Email Email Email Email Email Email",
-    leftIcon: <IconMessage />,
-    rightIcon: <IconAlertCircle />,
+    leftIcon: <IconMessage size={18} />,
+    rightIcon: <IconAlertCircle size={18} />,
+  },
+}
+
+export const password: Story = {
+  args: {
+    type: "password",
+  },
+}
+
+export const disabled: Story = {
+  args: {
+    disabled: true,
+    leftIcon: <IconMessage size={18} />,
+    rightIcon: <IconAlertCircle size={18} />,
   },
 }
 
