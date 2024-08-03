@@ -14,7 +14,7 @@ export const primary: Story = {
   args: {
     color: "primary",
     placeholder: "Email Email Email Email Email Email",
-    leftIcon: <IconMessage size={18} />,
+    leftIcon: <IconMessage size={18} color="orange" />,
     rightIcon: <IconAlertCircle size={18} />,
   },
 }
@@ -22,6 +22,7 @@ export const primary: Story = {
 export const password: Story = {
   args: {
     type: "password",
+    placeholder: "Password",
   },
 }
 

@@ -1,10 +1,10 @@
 import { StyleProps } from "./types"
 import { twMerge } from "tailwind-merge"
-import { border } from "../../../../theme/mapper"
+import { border, text } from "../../../../theme/mapper"
 import { Colors } from "../../../../theme/constants"
 
 export const getStyles = ({
-  color = "gray",
+  color = "primary",
   disabled,
   leftIcon,
   rightIcon,
@@ -32,19 +32,27 @@ export const getStyles = ({
     "rounded",
     "focus:outline-none",
     "p-1",
+
+    !leftIcon ? "pl-2" : "",
     "border",
-    border[color][300],
+    "text-mdRegular",
+    border["gray"][300],
     focusBorderMapper[color],
-    leftIcon ? "pl-9" : "",
-    rightIcon ? "pr-9" : "",
-    disabled ? "disabled:opacity-50 disabled:cursor-not-allowed" : "",
+    leftIcon ? "pl-8" : "",
+    rightIcon ? "pr-8" : "",
+    disabled
+      ? "disabled:opacity-50 disabled:cursor-not-allowed bg-gray-200"
+      : "",
   ])
   const lIcon = twMerge(
-    disabled ? "disabled disabled:opacity-50" : "",
-    "absolute inset-y-0 flex items-center pl-2 pointer-events-none text-primary-500"
+    "absolute inset-y-0 flex items-center pointer-events-none",
+    "pl-2",
+    text[color][500]
   )
-  const rIcon =
-    "absolute inset-y-0 right-0 pr-2 flex items-center pointer-events-none text-gray-500"
+  const rIcon = twMerge(
+    "absolute inset-y-0 right-0  flex items-center pointer-events-none text-gray-500",
+    "pr-2"
+  )
 
   return { container, input, lIcon, rIcon }
 }
