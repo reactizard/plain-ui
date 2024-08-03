@@ -1,5 +1,5 @@
 export { default as bg } from "./bg"
-export { default as border } from "./border"
+export { default as border, focusBorder } from "./border"
 export { default as hover } from "./hover"
 export { default as fill } from "./svg/fill"
 export { default as hoverFill } from "./svg/hoverFill"

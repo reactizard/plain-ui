@@ -1,7 +1,6 @@
 import { StyleProps } from "./types"
 import { twMerge } from "tailwind-merge"
-import { border, text } from "../../../../theme/mapper"
-import { Colors } from "../../../../theme/constants"
+import { border, focusBorder, text } from "../../../../theme/mapper"
 
 export const getStyles = ({
   color = "primary",
@@ -9,22 +8,6 @@ export const getStyles = ({
   leftIcon,
   rightIcon,
 }: StyleProps) => {
-  const focusBorderMapper: Record<Colors, string> = {
-    primary: "focus:border-primary-500",
-    gray: "focus:border-gray-500",
-    success: "focus:border-success-500",
-    warning: "focus:border-warning-500",
-    danger: "focus:border-danger-500",
-    yellow: "focus:border-yellow-500",
-    orange: "focus:border-orange-500",
-    melon: "focus:border-melon-500",
-    pink: "focus:border-pink-500",
-    purple: "focus:border-purple-500",
-    azure: "focus:border-azure-500",
-    aloha: "focus:border-aloha-500",
-    lime: "focus:border-lime-500",
-    warm: "focus:border-warm-500",
-  }
   const container = "relative w-fit"
   const input = twMerge([
     "pUIInput",
@@ -37,7 +20,7 @@ export const getStyles = ({
     "border",
     "text-mdRegular",
     border["gray"][300],
-    focusBorderMapper[color],
+    focusBorder[color],
     leftIcon ? "pl-8" : "",
     rightIcon ? "pr-8" : "",
     disabled
