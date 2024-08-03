@@ -1,3 +1,5 @@
+import { Colors } from "../constants"
+
 const border = {
   primary: {
     [100]: "border-primary-100",
@@ -153,5 +155,22 @@ const border = {
     [800]: "border-warm-800",
     [900]: "border-warm-900",
   },
+}
+
+export const focusBorder: Record<Colors, string> = {
+  primary: "focus:border-primary-500",
+  gray: "focus:border-gray-500",
+  success: "focus:border-success-500",
+  warning: "focus:border-warning-500",
+  danger: "focus:border-danger-500",
+  yellow: "focus:border-yellow-500",
+  orange: "focus:border-orange-500",
+  melon: "focus:border-melon-500",
+  pink: "focus:border-pink-500",
+  purple: "focus:border-purple-500",
+  azure: "focus:border-azure-500",
+  aloha: "focus:border-aloha-500",
+  lime: "focus:border-lime-500",
+  warm: "focus:border-warm-500",
 }
 export default border
