@@ -126,7 +126,7 @@ export const ButtonOpener = () => {
     ref,
   }) => (
     <Button
-      onClick={() => setIsOpen(!isOpen)}
+      onClick={() => setIsOpen((prev) => !prev)}
       rightIcon={isOpen ? <IconChevronUp /> : <IconChevronDown />}
       ref={ref}
     >
