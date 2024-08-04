@@ -4,7 +4,7 @@ interface DropDownAccessibilityProps {
   isOpen: boolean
   setIsOpen: (open: boolean) => void
   ref?: RefObject<any>
-  openerRef?: RefObject<HTMLElement>
+  openerRef?: RefObject<any>
 }
 export const useAccessibility = ({
   isOpen,
@@ -27,7 +27,12 @@ export const useAccessibility = ({
   }
 
   const handleClickOutside = (event: Event) => {
-    if (ref && ref.current && !ref.current.contains(event.target)) {
+    const clickedOnOpener =
+      openerRef && openerRef.current && openerRef.current.contains(event.target)
+    const clickedOutsideUL =
+      ref && ref.current && !ref.current.contains(event.target)
+
+    if (!clickedOnOpener && clickedOutsideUL) {
       setIsOpen(false)
     }
   }
