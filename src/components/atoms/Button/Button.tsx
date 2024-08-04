@@ -11,21 +11,41 @@ export const Button = forwardRef(function Button(
     rightIcon,
     disabled,
     round,
+    onClick,
     variant = "filled",
     styles: customStyles,
     ...rest
   }: ButtonProps,
   ref: Ref<HTMLButtonElement>
 ) {
-  const styles = getStyles({ children, color, round, size, variant, disabled })
+  const styles = getStyles({
+    children,
+    color,
+    round,
+    size,
+    variant,
+    onClick,
+    disabled,
+  })
+
+  const handleClick = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    if (disabled) {
+      event.preventDefault()
+    } else {
+      onClick && onClick(event)
+    }
+  }
 
   return (
     <button
+      ref={ref}
+      onClick={handleClick}
       className={styles}
       style={customStyles}
       disabled={disabled}
       {...rest}
-      ref={ref}
     >
       {leftIcon ? leftIcon : null}
       {children}
