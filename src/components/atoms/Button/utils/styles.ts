@@ -32,7 +32,6 @@ export const getStyles = ({
     "gap-[4px]",
     "justify-between",
     "items-center",
-    "font-inter",
     "text-mdRegular",
     sizeMapper[size].height,
     children ? "px-[20px]" : sizeMapper[size].padding,

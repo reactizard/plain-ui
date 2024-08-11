@@ -21,7 +21,6 @@ export const getStyles = ({ variant, color, size }: StyleProps) => {
     "rounded-[999px]",
     "gap-[4px]",
     "max-w-fit",
-    "font-inter",
     "text-smSemiBold",
     size ? sizeMapper[size] : "",
     variant ? colorMapper[variant] : "",
