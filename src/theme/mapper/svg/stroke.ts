@@ -1,3 +1,5 @@
+import { Colors } from "../../constants"
+
 const stroke = {
   primary: {
     [100]: "stroke-primary-100",
@@ -153,5 +155,22 @@ const stroke = {
     [800]: "stroke-warm-800",
     [900]: "stroke-warm-900",
   },
+}
+
+export const hoverStroke: Record<Colors, string> = {
+  primary: "hover:stroke-primary-500",
+  gray: "hover:stroke-gray-500",
+  success: "hover:stroke-success-500",
+  warning: "hover:stroke-warning-500",
+  danger: "hover:stroke-danger-500",
+  yellow: "hover:stroke-yellow-500",
+  orange: "hover:stroke-orange-500",
+  melon: "hover:stroke-melon-500",
+  pink: "hover:stroke-pink-500",
+  purple: "hover:stroke-purple-500",
+  azure: "hover:stroke-azure-500",
+  aloha: "hover:stroke-aloha-500",
+  lime: "hover:stroke-lime-500",
+  warm: "hover:stroke-warm-500",
 }
 export default stroke
