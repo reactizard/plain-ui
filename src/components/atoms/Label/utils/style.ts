@@ -1,6 +1,6 @@
 import classNames from "classnames"
 import { text } from "../../../../theme/mapper"
-import { LabelProps } from "../Label"
+import { LabelProps } from "./types"
 
 interface StyleProps {
   color?: LabelProps["color"]

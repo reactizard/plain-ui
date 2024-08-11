@@ -1,21 +1,18 @@
 import React, { forwardRef } from "react"
-import { Colors, LabelVariant } from "../../../theme/constants"
 import { getStyles } from "./utils/style"
+import { LabelProps } from "./utils/types"
 
-export interface LabelProps {
-  color?: Colors | undefined
-  text: string
-  variant?: LabelVariant
-}
-
-const Label: React.FC<LabelProps> = forwardRef<HTMLDivElement, LabelProps>(
-  function Label({ color = undefined, text, variant = "title" }, ref) {
+const Label: React.FC<LabelProps> = forwardRef<HTMLLabelElement, LabelProps>(
+  function Label(
+    { color = undefined, text, variant = "title", labelFor = "", ...props },
+    ref
+  ) {
     const classes = getStyles({ color, variant })
 
     return (
-      <div ref={ref} className={classes}>
+      <label ref={ref} className={classes} htmlFor={labelFor} {...props}>
         {text}
-      </div>
+      </label>
     )
   }
 )
