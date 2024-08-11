@@ -64,7 +64,6 @@ export const getStyles = ({ size, positionX, positionY }: StyleProps) => {
     "text-gray-900",
     "text-sm",
     "font-semibold",
-    "font-['Inter']",
     "leading-snug",
   ])
   const content = classNames([

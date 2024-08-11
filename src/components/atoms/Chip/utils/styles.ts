@@ -27,7 +27,6 @@ export const getStyles = ({
     "gap-[4px]",
     "px-[8px]",
     "py-[2px]",
-    "font-inter",
     "text-smRegular",
     disabled ? "disabled:opacity-50 disabled:cursor-not-allowed" : "",
     "w-fit",
