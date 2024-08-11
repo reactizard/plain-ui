@@ -2,7 +2,7 @@
 
 exports[`Chip component shows same UI as expected 1`] = `
 <button
-  class="bg-primary-500 hover:bg-primary-600 text-white flex items-center rounded-[4px] gap-[4px] px-[8px] py-[2px] font-inter text-smRegular w-fit"
+  class="bg-primary-500 hover:bg-primary-600 text-white flex items-center rounded-[4px] gap-[4px] px-[8px] py-[2px] text-smRegular w-fit"
 >
   Test Chip
   <svg

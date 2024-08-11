@@ -1,5 +1,6 @@
 export const Font = {
   fontFamily: {
+    sans: ["Inter", "sans-serif"],
     inter: ["Inter", "sans-serif"],
   },
   fontSize: {
