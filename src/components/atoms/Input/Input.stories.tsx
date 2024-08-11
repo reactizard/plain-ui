@@ -1,4 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react"
+
 import React from "react"
 import Input from "./Input"
 import {
@@ -20,9 +21,10 @@ export const primary: Story = {
   args: {
     color: "primary",
     placeholder: "Email",
-    leftIcon: <IconMessage size={18} />,
+    leftIcon: <IconMail size={18} />,
     rightIcon: <IconAlertCircle size={18} />,
-    label: "Enter your email address",
+    label: "Enter your email address:",
+    cleanable: true,
   },
 }
 
