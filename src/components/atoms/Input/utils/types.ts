@@ -6,7 +6,10 @@ export interface InputProps {
   label?: string
   value?: string | number
   type?: "text" | "number" | "email" | "password"
+  required?: boolean
   disabled?: boolean
+  cleanable?: boolean
+  onChange?: React.ChangeEventHandler<HTMLInputElement>
   error?: boolean
   errorText?: string
   leftIcon?: React.ReactElement
@@ -14,5 +17,5 @@ export interface InputProps {
 }
 export type StyleProps = Pick<
   InputProps,
-  "color" | "disabled" | "leftIcon" | "rightIcon" | "error"
+  "color" | "disabled" | "leftIcon" | "rightIcon" | "error" | "cleanable"
 >

@@ -8,8 +8,9 @@ export const getStyles = ({
   disabled,
   leftIcon,
   rightIcon,
+  cleanable,
 }: StyleProps) => {
-  const container = twMerge("relative w-fit", disabled ? "opacity-80" : "")
+  const container = twMerge("relative w-fit my-1", disabled ? "opacity-80" : "")
 
   const input = twMerge([
     "pUIInput",
@@ -27,12 +28,18 @@ export const getStyles = ({
     leftIcon ? "pl-8" : "",
     rightIcon ? "pr-8" : "",
     disabled ? "cursor-not-allowed bg-gray-200" : "",
+    "shadow-sm",
   ])
 
   const commonIconClass =
     "absolute inset-y-0 flex items-center pointer-events-none opacity-50"
   const lIcon = twMerge(commonIconClass, "pl-2")
-  const rIcon = twMerge(commonIconClass, "pr-2", "right-0")
+  const rIcon = twMerge([
+    commonIconClass,
+    "pr-2",
+    "right-0",
+    cleanable ? "pointer-events-auto cursor-pointer" : "",
+  ])
 
   return { container, input, lIcon, rIcon }
 }
