@@ -1,4 +1,4 @@
-import React, { forwardRef, useRef } from "react"
+import React, { forwardRef, useRef, useId } from "react"
 import { InputProps } from "./utils/types"
 import { getStyles } from "./utils/styles"
 import "./utils/styles.css"
@@ -14,6 +14,7 @@ export const Input = forwardRef<HTMLDivElement, InputProps>(function Input(
     rightIcon,
     value,
     type = "text",
+    required = false,
     disabled = false,
     cleanable = false,
     onChange,
@@ -24,6 +25,7 @@ export const Input = forwardRef<HTMLDivElement, InputProps>(function Input(
   ref
 ) {
   const inputRef = useRef<HTMLInputElement>(null)
+  const inputId = useId()
   const styles = getStyles({
     color,
     disabled,
@@ -39,6 +41,13 @@ export const Input = forwardRef<HTMLDivElement, InputProps>(function Input(
       inputRef.current.focus()
     }
   }
+
+  const labelElement = label ? (
+    <>
+      <Label text={label} variant="subtitle" labelFor={inputId} />
+      {required ? <span className="text-danger-500"> * </span> : null}
+    </>
+  ) : null
 
   const leftElement = leftIcon ? (
     <div className={styles.lIcon}>{leftIcon}</div>
@@ -56,15 +65,17 @@ export const Input = forwardRef<HTMLDivElement, InputProps>(function Input(
 
   return (
     <>
-      {label ? <Label text={label} variant="subtitle" /> : null}
+      {labelElement}
       <div className={styles.container} ref={ref}>
         {leftElement}
         <input
+          id={inputId}
           ref={inputRef}
           type={type}
           disabled={disabled}
           value={value}
           placeholder={placeholder}
+          required={required}
           className={styles.input}
           onChange={(e) => {
             onChange && onChange(e)
