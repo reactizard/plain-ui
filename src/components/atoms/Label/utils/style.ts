@@ -1,23 +1,18 @@
-import classNames from "classnames"
+import { StyleProps } from "./types"
 import { text } from "../../../../theme/mapper"
-import { LabelProps } from "./types"
+import { FontNames } from "../../../../theme/constants/font"
 
-interface StyleProps {
-  color?: LabelProps["color"]
-  variant: NonNullable<LabelProps["variant"]>
-}
-type variantColorType = Record<StyleProps["variant"], Array<string>>
+export const getStyles = ({ weight = "md", color }: StyleProps) => {
+  const SizeMapper = Object.entries(FontNames).reduce(
+    (acc: any, [key, value]) => {
+      Object.entries(value).forEach(([subKey]) => {
+        acc[key] = `text-${subKey}`
+      })
+      return acc
+    },
+    {} as Record<string, any[]>
+  )
 
-export const getStyles = ({ color, variant }: StyleProps) => {
-  const title = ["text-mdSemiBold"]
-  const subtitle = ["text-mdRegular"]
-  const hint = ["text-smRegular"]
-  const icon = ["text-mdRegular"]
-
-  const variantColor: variantColorType = { title, subtitle, hint, icon }
-  const ownClasses = [color ? text[color][500] : ""]
-
-  const styles = classNames(ownClasses, variantColor[variant])
-
-  return styles
+  const label = [color ? text[color][500] : "", SizeMapper[weight]]
+  return { label }
 }
