@@ -1,6 +1,7 @@
 import React, { Ref, forwardRef } from "react"
 import { getStyles } from "./utils/styles"
 import { ButtonProps } from "./utils/types"
+import { twMerge } from "tailwind-merge"
 
 export const Button = forwardRef(function Button(
   {
@@ -13,7 +14,7 @@ export const Button = forwardRef(function Button(
     round,
     onClick,
     variant = "filled",
-    styles: customStyles,
+    style: customStyle,
     ...rest
   }: ButtonProps,
   ref: Ref<HTMLButtonElement>
@@ -40,12 +41,12 @@ export const Button = forwardRef(function Button(
 
   return (
     <button
+      {...rest}
       ref={ref}
       onClick={handleClick}
-      className={styles}
-      style={customStyles}
+      className={twMerge(styles, rest.className)}
+      style={customStyle}
       disabled={disabled}
-      {...rest}
     >
       {leftIcon ? leftIcon : null}
       {children}
