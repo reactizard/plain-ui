@@ -1,7 +1,7 @@
-import classNames from "classnames"
 import { Size } from "../../../../theme/constants"
 import { bg, border, hover, ring, text } from "../../../../theme/mapper"
 import { StyleProps } from "./types"
+import { twMerge } from "tailwind-merge"
 
 export const getStyles = ({
   color,
@@ -40,9 +40,10 @@ export const getStyles = ({
     variant ? variantColor[variant] : "",
     "focus:ring-2 focus:outline-none",
     ring[color][300],
+    "justify-center",
   ]
 
-  const styles = classNames(ownClasses)
+  const styles = twMerge(ownClasses)
 
   return styles
 }

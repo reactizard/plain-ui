@@ -10,7 +10,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: Extract<ButtonVariant, "outlined" | "filled">
   children?: React.ReactNode
   round?: boolean
-  styles?: object
+  style?: object
 }
 
 export interface StyleProps extends ButtonProps {
