@@ -1,8 +1,6 @@
 import React, { forwardRef } from "react"
 import { getStyles } from "./utils/style"
 import { LabelProps } from "./utils/types"
-import { twMerge } from "tailwind-merge"
-import classNames from "classnames"
 
 const Label = forwardRef<HTMLLabelElement, LabelProps>(function Label(
   { color = undefined, text, labelFor = undefined, weight, ...rest },
@@ -14,7 +12,7 @@ const Label = forwardRef<HTMLLabelElement, LabelProps>(function Label(
     <label
       {...rest}
       ref={ref}
-      className={classNames(classes.label, rest.className)}
+      className={`${rest.className ?? ""} ${classes.label.join(" ")}`}
       htmlFor={labelFor}
     >
       {text}
