@@ -44,7 +44,7 @@ export const Input = forwardRef<HTMLDivElement, InputProps>(function Input(
 
   const labelElement = label ? (
     <>
-      <Label text={label} variant="subtitle" labelFor={inputId} />
+      <Label text={label} weight="md" labelFor={inputId} />
       {required ? <span className="text-danger-500"> * </span> : null}
     </>
   ) : null
@@ -84,9 +84,7 @@ export const Input = forwardRef<HTMLDivElement, InputProps>(function Input(
         />
         <div className={styles.rIcon}>{rightElement}</div>
       </div>
-      {errorText ? (
-        <Label text={errorText} color="danger" variant="hint" />
-      ) : null}
+      {errorText ? <Label text={errorText} color="danger" weight="sm" /> : null}
     </>
   )
 })

@@ -1,11 +1,17 @@
 import { Meta, StoryObj } from "@storybook/react"
 import Label from "./Label"
 import React from "react"
+import { FontNames } from "../../../theme/constants/font"
 
 const meta: Meta<typeof Label> = {
   title: "Atoms/Label",
   component: Label,
   tags: ["autodocs"],
+  argTypes: {
+    weight: {
+      options: Object.keys(FontNames),
+    },
+  },
 }
 
 export default meta

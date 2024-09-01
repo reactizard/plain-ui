@@ -3,15 +3,30 @@ import { text } from "../../../../theme/mapper"
 import { FontNames } from "../../../../theme/constants/font"
 
 export const getStyles = ({ weight = "md", color }: StyleProps) => {
-  const SizeMapper = Object.entries(FontNames).reduce(
-    (acc: any, [key, value]) => {
-      Object.entries(value).forEach(([subKey]) => {
-        acc[key] = `text-${subKey}`
-      })
-      return acc
-    },
-    {} as Record<string, any[]>
-  )
+  // const SizeMapper = Object.entries(FontNames).reduce(
+  //   (acc: any, [key, value]) => {
+  //     Object.entries(value).forEach(([subKey]) => {
+  //       acc[key] = `text-${subKey}`
+  //     })
+  //     return acc
+  //   },
+  //   {} as Record<string, any[]>
+  // )
+
+  const SizeMapper = {
+    xs: "text-xsRegular",
+    sm: "text-smRegular",
+    md: "text-mdRegular",
+    lg: "text-lgRegular",
+    "xs-med": "text-xsSemiBold",
+    "sm-med": "text-smSemiBold",
+    "md-med": "text-mdSemiBold",
+    "lg-med": "text-lgSemiBold",
+    h4: "text-h4Bold",
+    h3: "text-h3Bold",
+    h2: "text-h2Bold",
+    h1: "text-h1Bold",
+  }
 
   const label = [color ? text[color][500] : "", SizeMapper[weight]]
   return { label }
