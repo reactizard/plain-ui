@@ -1,6 +1,6 @@
 import { IconUserCircle } from "@tabler/icons-react"
 import React, { forwardRef, Ref, useEffect, useRef } from "react"
-import { getAbbr } from "../../../theme/functions"
+import { getAbbr } from "../../../theme/utils"
 import AvatarGroup from "./Group/AvatarGroup"
 import { getStyles } from "./utils/styles"
 import { AvatarComponent, AvatarProps } from "./utils/types"
