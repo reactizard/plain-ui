@@ -1,7 +1,8 @@
 import React from "react"
 import { getStyles } from "./utils/style"
 import { LabelProps, LabelRef } from "./utils/types"
-import { twMerge } from "tailwind-merge"
+import { FontWeights } from "../../../theme/constants/font"
+import { customTwMerge } from "../../../theme/utils/"
 
 type TextComponent = <C extends React.ElementType = "span">(
   props: LabelProps<C>
@@ -9,15 +10,22 @@ type TextComponent = <C extends React.ElementType = "span">(
 
 export const Label: TextComponent = React.forwardRef(function Label<
   C extends React.ElementType = "span"
->({ as, children, ...rest }: LabelProps<C>, ref: LabelRef<C>) {
+>({ as, color, weight, children, ...rest }: LabelProps<C>, ref: LabelRef<C>) {
   const Component = as || "span"
-  const classes = getStyles({ color: rest.color })
-  console.log("rest", rest.className)
+
+  const headerTags = ["h1", "h2", "h3", "h4"]
+  const setHeadersDefaultWeight = !weight && headerTags.includes(as as string)
+  if (setHeadersDefaultWeight) {
+    weight = as as FontWeights
+  }
+
+  const classes = getStyles({ color, weight })
+
   return (
     <Component
       {...rest}
       ref={ref}
-      className={twMerge(classes.label, rest.className)}
+      className={customTwMerge(classes.label, rest.className)}
     >
       {children}
     </Component>
