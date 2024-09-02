@@ -1,22 +1,26 @@
-import React, { forwardRef } from "react"
+import React from "react"
 import { getStyles } from "./utils/style"
-import { LabelProps } from "./utils/types"
+import { LabelProps, LabelRef } from "./utils/types"
+import { twMerge } from "tailwind-merge"
 
-const Label = forwardRef<HTMLLabelElement, LabelProps>(function Label(
-  { color = undefined, text, labelFor = undefined, weight, ...rest },
-  ref
-) {
-  const classes = getStyles({ color, weight })
+type TextComponent = <C extends React.ElementType = "span">(
+  props: LabelProps<C>
+) => React.ReactNode | null
 
+export const Label: TextComponent = React.forwardRef(function Label<
+  C extends React.ElementType = "span"
+>({ as, children, ...rest }: LabelProps<C>, ref: LabelRef<C>) {
+  const Component = as || "span"
+  const classes = getStyles({ color: rest.color })
+  console.log("rest", rest.className)
   return (
-    <label
+    <Component
       {...rest}
       ref={ref}
-      className={`${rest.className ?? ""} ${classes.label.join(" ")}`}
-      htmlFor={labelFor}
+      className={twMerge(classes.label, rest.className)}
     >
-      {text}
-    </label>
+      {children}
+    </Component>
   )
 })
 
