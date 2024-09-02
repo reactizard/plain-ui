@@ -1,18 +1,9 @@
 import { StyleProps } from "./types"
 import { text } from "../../../../theme/mapper"
+import { FontWeights } from "../../../../theme/constants/font"
 
-export const getStyles = ({ color = "gray" }: StyleProps) => {
-  // const SizeMapper = Object.entries(FontNames).reduce(
-  //   (acc: any, [key, value]) => {
-  //     Object.entries(value).forEach(([subKey]) => {
-  //       acc[key] = `text-${subKey}`
-  //     })
-  //     return acc
-  //   },
-  //   {} as Record<string, any[]>
-  // )
-
-  const SizeMapper = {
+export const getStyles = ({ color = "gray", weight = "md" }: StyleProps) => {
+  const SizeMapper: Record<FontWeights, string> = {
     xs: "text-xsRegular",
     sm: "text-smRegular",
     md: "text-mdRegular",
@@ -27,6 +18,6 @@ export const getStyles = ({ color = "gray" }: StyleProps) => {
     h1: "text-h1Bold",
   }
 
-  const label = [color ? text[color][500] : ""]
+  const label = [color ? text[color][500] : "", SizeMapper[weight]]
   return { label }
 }
