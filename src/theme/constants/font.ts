@@ -31,6 +31,7 @@ export const FontNames = {
   h1: { h1Bold: ["28px", { lineHeight: "33.6px", fontWeight: "700" }] },
 }
 
+//{ xsSemiBold: ["10px",{lineHeight: '16px', fontWeight: '600'}], ... }
 export const FontSize = Object.entries(FontNames).reduce(
   (acc, [key, value]) => {
     Object.entries(value).forEach(([subKey, subValue]) => {
