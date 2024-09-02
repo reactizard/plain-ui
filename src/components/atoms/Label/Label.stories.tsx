@@ -13,8 +13,7 @@ type Story = StoryObj<typeof Label>
 
 export const Primary: Story = {
   args: {
-    children: "Label",
-    color: "primary",
+    children: "Default Label",
   },
 }
 
@@ -31,5 +30,26 @@ export const title: Story = {
     children: "Page Title",
     as: "h1",
     color: "gray",
+  },
+}
+
+export const Variations: Story = {
+  render: () => {
+    return (
+      <div className="flex flex-col w-fit">
+        <Label>Default label</Label>
+        <Label
+          as="a"
+          href="www.google.com"
+          color="primary"
+          className="underline"
+        >
+          Anchor label
+        </Label>
+        <Label color="danger">Colored Label</Label>
+        <Label as="h1">H1 Label</Label>
+        <Label as="h2">H2 Label</Label>
+      </div>
+    )
   },
 }
