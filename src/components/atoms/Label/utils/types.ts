@@ -18,10 +18,11 @@ type PropsToOmit<C extends ElementType, P> = keyof (AsProps<C> & P)
 
 export type LabelProps<C extends ElementType> = PolymorphicProps<
   C,
-  { color?: Colors; weight?: FontWeights }
+  Omit<StyleProps, "as">
 > & { ref?: LabelRef<C> }
 
 export type StyleProps = {
   color?: Colors
   weight?: FontWeights
+  as?: string
 }
