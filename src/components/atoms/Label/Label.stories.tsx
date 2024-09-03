@@ -38,12 +38,7 @@ export const Variations: Story = {
     return (
       <div className="flex flex-col w-fit">
         <Label>Default label</Label>
-        <Label
-          as="a"
-          href="www.google.com"
-          color="primary"
-          className="underline"
-        >
+        <Label as="a" href="www.google.com">
           Anchor label
         </Label>
         <Label color="danger">Colored Label</Label>
