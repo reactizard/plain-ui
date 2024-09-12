@@ -1,6 +1,7 @@
+import { HTMLAttributes } from "react"
 import { Colors } from "../../../../theme/constants"
 
-export interface InputProps {
+export interface InputProps extends HTMLAttributes<HTMLInputElement> {
   color?: Colors
   placeholder?: string
   label?: string
