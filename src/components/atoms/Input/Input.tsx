@@ -25,7 +25,7 @@ export const Input = forwardRef<HTMLDivElement, InputProps>(function Input(
   ref
 ) {
   const inputRef = useRef<HTMLInputElement>(null)
-  const inputId = useId()
+  const inputId = props.id || useId()
   const styles = getStyles({
     color,
     disabled,
@@ -44,7 +44,9 @@ export const Input = forwardRef<HTMLDivElement, InputProps>(function Input(
 
   const labelElement = label ? (
     <>
-      <Label text={label} weight="md" labelFor={inputId} />
+      <Label as="label" weight="md" htmlFor={inputId}>
+        {label}
+      </Label>
       {required ? <span className="text-danger-500"> * </span> : null}
     </>
   ) : null
@@ -84,7 +86,11 @@ export const Input = forwardRef<HTMLDivElement, InputProps>(function Input(
         />
         <div className={styles.rIcon}>{rightElement}</div>
       </div>
-      {errorText ? <Label text={errorText} color="danger" weight="sm" /> : null}
+      {errorText ? (
+        <Label color="danger" weight="sm">
+          {errorText}
+        </Label>
+      ) : null}
     </>
   )
 })
