@@ -6,8 +6,8 @@ import {
 } from "@tabler/icons-react"
 import React from "react"
 import { text } from "../../../theme/mapper"
-import Link from "../../atoms/Link"
 import Toast from "./Toast"
+import Label from "../../atoms/Label"
 
 const icons = {
   none: "",
@@ -33,7 +33,11 @@ export const Primary: Story = {
     closable: true,
     autoClose: true,
     sideIcon: <IconDiscountCheckFilled className={text["success"][500]} />,
-    footer: <Link href="http://www.google.com" text="Search" target="_blank" />,
+    footer: (
+      <Label as="a" href="http://www.google.com" target="_blank">
+        Search
+      </Label>
+    ),
     onClose: (e) => console.log("The Toast has been closed", e.type),
   },
   argTypes: {
