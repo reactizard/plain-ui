@@ -7,8 +7,8 @@ import {
 import React from "react"
 import { Void } from "../../../icons"
 import Button from "../../atoms/Button"
-import Link from "../../atoms/Link"
 import Banner from "./Banner"
+import Label from "../../atoms/Label"
 
 const icons = {
   None: null,
@@ -24,11 +24,9 @@ const icons = {
 const dismissables = {
   Button: <Button style={{ color: "white" }}>Button</Button>,
   Link: (
-    <Link
-      href="https://www.google.com"
-      text="Google"
-      style={{ color: "white" }}
-    />
+    <Label as="a" href="https://www.google.com" style={{ color: "white" }}>
+      Google
+    </Label>
   ),
   Icon: <IconX style={{ cursor: "pointer" }} />,
 }

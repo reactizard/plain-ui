@@ -7,8 +7,8 @@ import {
 import React from "react"
 import { CommonProps } from "../../../theme/constants"
 import { text } from "../../../theme/mapper"
-import Link from "../../atoms/Link/Link"
 import { Alert } from "./Alert"
+import Label from "../../atoms/Label"
 type AlertType = Exclude<typeof Alert, CommonProps>
 
 const icons = {
@@ -39,7 +39,11 @@ export const Primary: Story = {
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus faucibus sit sit facilisis dictumst bibendum. Lorem ipsum dolor sit amet dictumst ipsum consectetur adipiscing.",
     closable: true,
     sideIcon: <IconDiscountCheckFilled className={text["success"][500]} />,
-    footer: <Link href="http://www.google.com" text="Search" target="_blank" />,
+    footer: (
+      <Label as="a" href="http://www.google.com" target="_blank">
+        Search
+      </Label>
+    ),
     onClose: (e) => console.log("The alert has been closed", e.type),
   },
   argTypes: {
