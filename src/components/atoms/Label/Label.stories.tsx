@@ -13,7 +13,13 @@ type Story = StoryObj<typeof Label>
 
 export const Primary: Story = {
   args: {
-    children: "Default Label",
+    children: "I'm a polymorphic label component",
+  },
+  argTypes: {
+    as: {
+      description:
+        "This is a polymorphic Label component, which renders as a span element by default. You can change the rendered element using the as prop.",
+    },
   },
 }
 
