@@ -14,6 +14,14 @@ export const Primary: Story = {
   args: {
     text: "Chip",
     color: "primary",
+  },
+}
+
+export const rounded: Story = {
+  args: {
+    text: "Chip",
+    color: "azure",
     variant: "filled",
+    rounded: true,
   },
 }
