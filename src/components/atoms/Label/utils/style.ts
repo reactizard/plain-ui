@@ -29,7 +29,8 @@ export const getStyles = ({ color, weight, as }: StyleProps) => {
   }
 
   const label = [
-    color ? text[color][500] : text["gray"][900],
+    "inline-flex items-center",
+    color ? text[color][500] : text["gray"][800],
     weight ? SizeMapper[weight] : SizeMapper["md"],
     as == "a" ? "underline" : "",
   ]
