@@ -1,32 +1,32 @@
-import React, { Ref, forwardRef } from "react"
+import React, { PropsWithChildren, Ref, forwardRef } from "react"
 import { getStyles } from "./utils/styles"
-import { ButtonProps } from "./utils/types"
-import { twMerge } from "tailwind-merge"
+import { Props } from "./utils/types"
+import { customTwMerge } from "../../../theme/utils"
 
 export const Button = forwardRef(function Button(
   {
     children,
-    color = "melon",
-    size = "sm",
+    color,
+    size,
     leftIcon,
     rightIcon,
     disabled,
     round,
     onClick,
-    variant = "filled",
+    variant,
+    fullWidth,
     style: customStyle,
     ...rest
-  }: ButtonProps,
+  }: PropsWithChildren<Props>,
   ref: Ref<HTMLButtonElement>
 ) {
   const styles = getStyles({
-    children,
     color,
     round,
     size,
     variant,
-    onClick,
     disabled,
+    fullWidth,
   })
 
   const handleClick = (
@@ -44,7 +44,7 @@ export const Button = forwardRef(function Button(
       {...rest}
       ref={ref}
       onClick={handleClick}
-      className={twMerge(styles, rest.className)}
+      className={customTwMerge(styles.button, rest.className)}
       style={customStyle}
       disabled={disabled}
     >

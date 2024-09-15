@@ -1,7 +1,12 @@
 import { ButtonHTMLAttributes } from "react"
 import { ButtonVariant, Colors, Size } from "../../../../theme/constants"
 
-export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export type Props = Omit<
+  ButtonHTMLAttributes<HTMLButtonElement>,
+  keyof ButtonProps
+> &
+  ButtonProps
+export interface ButtonProps {
   color?: Colors
   disabled?: boolean
   leftIcon?: React.ReactNode
@@ -10,10 +15,11 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: Extract<ButtonVariant, "outlined" | "filled">
   children?: React.ReactNode
   round?: boolean
+  fullWidth?: boolean
   style?: object
 }
 
-export interface StyleProps extends ButtonProps {
-  color: Colors
-  size: Size
-}
+export type StyleProps = Pick<
+  ButtonProps,
+  "variant" | "size" | "round" | "color" | "fullWidth" | "disabled"
+>
