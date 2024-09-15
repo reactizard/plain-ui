@@ -1,14 +1,13 @@
 import { Size } from "../../../../theme/constants"
 import { bg, border, hover, ring, text } from "../../../../theme/mapper"
 import { StyleProps } from "./types"
-import { twMerge } from "tailwind-merge"
 
 export const getStyles = ({
-  color,
+  color = "primary",
   disabled,
-  size,
-  variant,
-  children,
+  size = "sm",
+  variant = "filled",
+  fullWidth = false,
   round,
 }: StyleProps) => {
   const sizeMapper: Record<Size, { height: string; padding: string }> = {
@@ -26,24 +25,23 @@ export const getStyles = ({
   ]
   const variantColor = { filled, outlined }
 
-  const ownClasses = [
-    "inline-flex",
-    "flex-shrink-0",
+  const button = [
+    fullWidth ? "w-full" : "w-max",
+    "flex",
     "gap-[4px]",
-    "justify-between",
+
     "items-center",
+    "justify-center",
+    "text-center",
     "text-mdRegular",
+    "focus:ring-2 focus:outline-none",
     sizeMapper[size].height,
-    children ? "px-[20px]" : sizeMapper[size].padding,
+    sizeMapper[size].padding,
     disabled ? "disabled:opacity-50 disabled:cursor-not-allowed" : "",
     round ? "rounded-[200px]" : "rounded-[4px]",
     variant ? variantColor[variant] : "",
-    "focus:ring-2 focus:outline-none",
     ring[color][300],
-    "justify-center",
   ]
 
-  const styles = twMerge(ownClasses)
-
-  return styles
+  return { button }
 }
