@@ -1,14 +1,15 @@
 import { ReactNode } from "react"
-import { Colors, Position, Size } from "../../../../theme/constants"
+import { Colors, Direction, Size } from "../../../../theme/constants"
 
 export interface DividerProps {
   label?: string | ReactNode
-  labelPosition?: Exclude<Position, "top" | "bottom">
+  labelPosition?: "start" | "center" | "end"
   color?: Colors
   weight?: Size
+  orientation?: Direction
 }
 
 export type StyleProps = Pick<
   DividerProps,
-  "color" | "labelPosition" | "weight"
+  "color" | "labelPosition" | "weight" | "orientation"
 >
