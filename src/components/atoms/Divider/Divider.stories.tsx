@@ -16,6 +16,13 @@ export const primary: Story = {
     label: "Text",
     labelPosition: "center",
   },
+  decorators: [
+    (Story) => (
+      <div className="h-[300px] flex items-center">
+        <Story />
+      </div>
+    ),
+  ],
 }
 
 export const button: Story = {
