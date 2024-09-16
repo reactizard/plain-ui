@@ -37,7 +37,6 @@ export const getStyles = ({
 
   const lineCls = twMerge([
     "line",
-    "w-full",
     "rounded",
 
     color ? border[color][300] : "",
