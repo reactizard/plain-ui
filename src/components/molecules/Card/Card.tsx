@@ -18,14 +18,14 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(function Card(
   const { group } = cardContext
   const styles = getStyles({ align })
 
+  const groupFirstItem = group?.current ?? null
+  const groupLastItem = (group && group?.total - 1) ?? null
   const groupStyle =
     group && group.total
-      ? twMerge([
-          group.current == 0 ? styles.groupItem.first : "",
-          group.current == group.total - 1
-            ? styles.groupItem.last
-            : styles.groupItem.middle,
-        ])
+      ? [
+          groupFirstItem ? styles.groupItem.first : "",
+          groupLastItem ? styles.groupItem.last : styles.groupItem.middle,
+        ]
       : null
 
   return (
@@ -33,9 +33,7 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(function Card(
       <div
         className={twMerge(
           groupStyle,
-          !groupStyle
-            ? "card border-2 rounded-lg shadow-md hover:shadow-lg"
-            : "",
+          !groupStyle ? styles.cardContainerNotGrouped : "",
           styles.cardContainer
         )}
         style={{
