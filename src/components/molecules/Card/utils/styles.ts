@@ -20,8 +20,12 @@ export const getStyles = ({ align }: StyleProps) => {
   const contentContainer = ["flex", align && alignMapper[align]]
 
   const cardContainer = [
-    "flex flex-col gap-4  box-content px-4 py-10 overflow-scroll",
+    "flex flex-col gap-4  box-content  px-4 py-10 overflow-scroll",
     align && alignMapper[align],
+  ]
+
+  const cardContainerNotGrouped = [
+    "border-2 rounded-lg shadow-md hover:shadow-lg",
   ]
   return {
     groupContainer,
@@ -31,5 +35,6 @@ export const getStyles = ({ align }: StyleProps) => {
     contentContainer,
 
     cardContainer,
+    cardContainerNotGrouped,
   }
 }
