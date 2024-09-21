@@ -2,11 +2,9 @@ import React, { HTMLAttributes, PropsWithChildren, useContext } from "react"
 import { CardContext } from "./utils/cardContext"
 import { twMerge } from "tailwind-merge"
 import { getStyles } from "./utils/styles"
+import { CardContentProps } from "./utils/types"
 
 type Props = HTMLAttributes<HTMLDivElement> & CardContentProps
-interface CardContentProps {
-  align?: "left" | "center" | "right"
-}
 
 const CardContent = ({
   children,

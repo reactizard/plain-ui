@@ -1,18 +1,12 @@
-import React, { forwardRef } from "react"
+import React, { forwardRef, Ref } from "react"
 import { CardContext } from "./utils/cardContext"
 import { twMerge } from "tailwind-merge"
 import { getStyles } from "./utils/styles"
+import { Props } from "./utils/types"
 
-interface CardProps {
-  width?: number
-  height?: number
-  children?: React.ReactNode
-  align?: "center" | "left" | "right"
-}
-
-export const Card = forwardRef<HTMLDivElement, CardProps>(function Card(
-  { children, width = 0, height = 0, align = "left" },
-  ref
+export const Card = forwardRef(function Card(
+  { children, width = 0, height = 0, align = "left" }: Props,
+  ref: Ref<HTMLDivElement>
 ) {
   const cardContext = React.useContext(CardContext)
   const { group } = cardContext
