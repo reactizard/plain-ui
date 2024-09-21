@@ -1,23 +1,14 @@
-import { ReactNode } from "react"
-import { Direction } from "../../../../theme/constants"
+import { HTMLAttributes, PropsWithChildren } from "react"
 
-export type CardVariant = "card" | "user" | "button"
-
-export interface StatShape {
-  icon?: ReactNode
-  number?: number
-}
-
+export type Props = Omit<HTMLAttributes<HTMLDivElement>, keyof CardProps> &
+  PropsWithChildren<CardProps>
 export interface CardProps {
-  cover?: string
-  avatar?: string
-  variant?: CardVariant
-  orientation?: Direction
-  title?: string
-  subtitle?: string
-  users?: ReactNode
-  actions?: ReactNode[]
-  stats?: StatShape[]
-  tags?: ReactNode[]
+  width?: number
+  height?: number
+  children?: React.ReactNode
+  align?: "center" | "left" | "right"
 }
-export type StyleProps = Pick<CardProps, "variant" | "orientation">
+
+export interface CardContentProps {
+  align?: "left" | "center" | "right"
+}

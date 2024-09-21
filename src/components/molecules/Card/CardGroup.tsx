@@ -6,6 +6,7 @@ export const CardGroup = ({ children }: { children: React.ReactNode }) => {
   const cardContext = React.useContext(CardContext)
   const childrenArray = React.Children.toArray(children)
   const styles = getStyles({})
+
   return (
     <div className={styles.groupContainer}>
       {childrenArray.map((item, index) => {
