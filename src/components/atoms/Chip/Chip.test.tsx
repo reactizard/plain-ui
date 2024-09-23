@@ -24,8 +24,8 @@ describe("Chip component", () => {
 
     expect(chipText).toBeInTheDocument()
     expect(chipText).not.toHaveClass("bg-primary-500")
-    expect(chipText).toHaveClass("border-primary-700")
-    expect(chipText).toHaveClass("text-primary-700")
+    expect(chipText).toHaveClass("border-primary-600")
+    expect(chipText).toHaveClass("text-primary-600")
     expect(chipText).toBeDisabled()
 
     // Re render with updated props
@@ -33,7 +33,7 @@ describe("Chip component", () => {
 
     expect(chipText).toHaveTextContent("Updated Chip")
     expect(chipText).toHaveClass("bg-primary-500")
-    expect(chipText).toHaveClass("text-white", "bg-primary-500")
+    expect(chipText).toHaveClass("text-gray-100", "bg-primary-500")
     expect(chipText).not.toBeDisabled()
   })
 })

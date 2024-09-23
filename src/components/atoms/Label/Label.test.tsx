@@ -6,14 +6,14 @@ import Label from "./Label"
 
 describe("Label", () => {
   test("should render a label with the correct text", () => {
-    const label = <Label text="This is a label" />
+    const label = <Label>This is a label</Label>
     const { getByText } = render(label)
     const renderedLabel = getByText("This is a label")
     expect(renderedLabel).toBeInTheDocument()
   })
 
   test("should render a label with the correct color", () => {
-    const label = <Label text="This is a label" color="primary" />
+    const label = <Label color="primary">This is a label</Label>
     const { getByText } = render(label)
     const renderedLabel = getByText("This is a label")
     expect(renderedLabel).toBeInTheDocument()
@@ -21,7 +21,7 @@ describe("Label", () => {
   })
 
   test("should render a label with the correct variant", () => {
-    const label = <Label text="This is a label" weight="md" />
+    const label = <Label weight="md">This is a label</Label>
     const { getByText } = render(label)
     const renderedLabel = getByText("This is a label")
     expect(renderedLabel).toBeInTheDocument()
