@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
+#### [v0.5.0](https://github.com/reactizard/plain-ui/compare/v0.4.0...v0.5.0)
+
+> 24 September 2024
+
+- chore: :package: upgrade storybook [`6716176`](https://github.com/reactizard/plain-ui/commit/6716176d0f6eeebfc022c59a9e9aa1c6843bf273)
+- feat: :sparkles: add initial dropdown component [`599af32`](https://github.com/reactizard/plain-ui/commit/599af32cb1b28772658d39b471853f40590998d4)
+- feat: :sparkles: add diverse card stories [`caa1ad5`](https://github.com/reactizard/plain-ui/commit/caa1ad5de59d32388ceeedc3ea6b0ff6ad4a7d9d)
+- feat: :sparkles: add polymorphic Label component
+
 #### [v0.4.0](https://github.com/reactizard/plain-ui/compare/v0.3.0...v0.4.0)
 
 > 28 May 2024
