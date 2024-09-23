@@ -1,4 +1,4 @@
-![npm bundle size](https://img.shields.io/bundlejs/size/%40reactizard%2Fplain-ui?color=green&a=1)
+![npm bundle size](https://img.shields.io/bundlejs/size/%40reactizard%2Fplain-ui?color=green&a=test1)
 ![npm](https://img.shields.io/npm/v/%40reactizard%2Fplain-ui?logo=npm)
 ![Codecov](https://img.shields.io/codecov/c/github/reactizard/plain-ui?logo=codecov)
 # plain-ui
