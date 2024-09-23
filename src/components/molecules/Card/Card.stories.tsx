@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react"
-import { IconCheck, IconExclamationCircle } from "@tabler/icons-react"
+import { IconCheck, IconDots, IconExclamationCircle } from "@tabler/icons-react"
 import React from "react"
 import { Button, Divider, Label } from "../.."
 import Card from "./Card"
@@ -116,24 +116,30 @@ const instaIcon = (
   </svg>
 )
 
+const dotButton = (
+  <button className="absolute top-4 right-4 bg-gray-200/30 text-white p-1 rounded-full hover:bg-gray-300/50 focus:outline-none">
+    <IconDots size={15} />
+  </button>
+)
+
 type Story = StoryObj<typeof Card>
 
 export const primary: Story = {
   render: () => {
     return (
       <Card align="center" width={300}>
-        <CardContent>
-          <img
-            src="https://images.unsplash.com/photo-1710830549028-8d008023c72f?"
-            width={"100%"}
-            height={"100%"}
-          />
-        </CardContent>
-        <CardContent align="center">
-          <Label>Facebook</Label>
+        <CardContent media className="relative">
+          <img src="https://placehold.co/300x200/turquoise/white" />
+          {dotButton}
         </CardContent>
         <CardContent>
-          <Button color="aloha" fullWidth>
+          <Label>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry.
+          </Label>
+        </CardContent>
+        <CardContent>
+          <Button style={{ background: "#34495E" }} fullWidth>
             Upgrade
           </Button>
         </CardContent>
@@ -163,7 +169,7 @@ export const SocialMedia: Story = {
     return (
       <div className="flex flex-row gap-5">
         {socialMedia.map((item, i) => (
-          <Card align="center" width={150} key={`sm-${i}`}>
+          <Card align="center" width={170} key={`sm-${i}`}>
             <CardContent align="center">{item.icon}</CardContent>
             <CardContent align="center">
               <Label weight="h2">{item.title}</Label>
