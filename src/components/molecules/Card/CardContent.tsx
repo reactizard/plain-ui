@@ -6,17 +6,18 @@ import { CardContentProps } from "./utils/types"
 
 type Props = HTMLAttributes<HTMLDivElement> & CardContentProps
 
-const CardContent = ({
+export const CardContent = ({
   children,
   align = "left",
+  media,
   ...props
 }: PropsWithChildren<Props>) => {
   const { width } = useContext(CardContext)
-  const styles = getStyles({ align })
+  const styles = getStyles({ align, media })
   return (
     <div
       className={twMerge(styles.contentContainer, props.className)}
-      style={{ width: width || "fit-content" }}
+      style={{ width: width || "fit-content", ...props.style }}
       {...props}
     >
       {children}

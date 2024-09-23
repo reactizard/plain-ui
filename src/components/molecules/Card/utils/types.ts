@@ -11,4 +11,5 @@ export interface CardProps {
 
 export interface CardContentProps {
   align?: "left" | "center" | "right"
+  media?: boolean
 }
