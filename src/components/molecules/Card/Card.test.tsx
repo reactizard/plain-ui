@@ -1,29 +1,42 @@
 import "@testing-library/jest-dom/extend-expect"
-import { render } from "@testing-library/react"
-import React from "react"
 
+import React from "react"
+import { render, screen } from "@testing-library/react"
 import { Card } from "./Card"
 
-describe("Card component", () => {
-  test("renders properly", () => {
-    const { getByTestId } = render(<Card />)
-    expect(getByTestId("card")).toBeInTheDocument()
+describe("Card", () => {
+  // ... existing imports and setup ...
+
+  it("renders children correctly", () => {
+    render(<Card>Test Content</Card>)
+    expect(screen.getByText("Test Content")).toBeInTheDocument()
   })
 
-  test("should render a card with all props", () => {
-    const { getByTestId } = render(
-      <Card
-        variant="card"
-        title="Title"
-        subtitle="Subtitle"
-        cover="cover.jpg"
-        tags={[<div key="tag">Tag</div>]}
-        users={<div>Users</div>}
-        orientation="vertical"
-        actions={[<button key="action">Action</button>]}
-        stats={[{ icon: <div key="icon">Icon</div>, number: 5 }]}
-      />
+  it("applies custom width and height", () => {
+    render(
+      <Card width={200} height={100}>
+        Test Content
+      </Card>
     )
-    expect(getByTestId("card")).toBeInTheDocument()
+    const cardContainer = screen.getByText("Test Content").closest("div")
+    expect(cardContainer).toHaveStyle({ width: "200px", height: "100px" })
+  })
+
+  it("applies default width and height when not provided", () => {
+    render(<Card>Test Content</Card>)
+    const cardContainer = screen.getByText("Test Content").closest("div")
+    expect(cardContainer).toHaveStyle({ width: "40vw", height: "inherit" })
+  })
+
+  it("applies alignment class correctly", () => {
+    render(<Card align="center">Test Content</Card>)
+    const cardContainer = screen.getByText("Test Content").closest("div")
+    expect(cardContainer).toHaveClass("items-center")
+  })
+
+  it("applies custom className", () => {
+    render(<Card className="custom-class">Test Content</Card>)
+    const cardContainer = screen.getByText("Test Content").closest("div")
+    expect(cardContainer).toHaveClass("custom-class")
   })
 })
