@@ -3,11 +3,7 @@ import { getStyles } from "./utils/style"
 import { LabelProps, LabelRef } from "./utils/types"
 import { customTwMerge } from "../../../theme/utils/"
 
-type TextComponent = <C extends React.ElementType = "span">(
-  props: LabelProps<C>
-) => React.ReactNode | null
-
-export const Label: TextComponent = React.forwardRef(function Label<
+export const Label = React.forwardRef(function Label<
   C extends React.ElementType = "span"
 >({ as, color, weight, children, ...rest }: LabelProps<C>, ref: LabelRef<C>) {
   const Component = as || "span"
